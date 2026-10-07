@@ -1,0 +1,111 @@
+/* =========================================================
+   SOBRE — "Cada linha, pensada." (linhas de código)
+   Sem JS: todas as linhas visíveis com comentário.
+   Com JS (.is-interactive): só a linha ativa acende.
+   ========================================================= */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  padding: var(--section-y) var(--pad-x);
+  border-top: 1px solid var(--c-line);
+}
+
+.about__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.about__title {
+  font-family: var(--f-display);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+}
+
+.about__lines {
+  border-top: 1px solid var(--c-line);
+}
+
+.about__line {
+  display: grid;
+  grid-template-columns: clamp(2rem, 1.6rem + 1.6vw, 3rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--gap-m);
+  padding-block: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  border-bottom: 1px solid var(--c-line);
+  transition: opacity 0.4s ease, background-color 0.4s ease;
+}
+
+.about__num {
+  font-family: var(--f-pixel);
+  color: var(--c-muted);
+  transition: color 0.4s ease;
+}
+
+.about__content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--gap-s);
+  transition: grid-template-rows 0.45s var(--ease-out), gap 0.45s var(--ease-out);
+}
+
+.about__statement {
+  font-family: var(--f-display);
+  font-size: clamp(1.375rem, 1rem + 1.6vw, 2.25rem);
+  line-height: 1.25;
+}
+
+/* Cursor de pixel no fim da linha ativa */
+.about__statement::after {
+  content: '';
+  display: inline-block;
+  width: 0.35em;
+  height: 0.8em;
+  margin-left: 0.15em;
+  vertical-align: -0.05em;
+  background: var(--c-red-light);
+  opacity: 0;
+}
+
+.about__comment {
+  overflow: hidden;
+  min-height: 0;
+  font-family: var(--f-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+/* --- Modo interativo (ativado pelo JS) --- */
+.about.is-interactive .about__line {
+  opacity: 0.35;
+}
+
+.about.is-interactive .about__content {
+  grid-template-rows: auto 0fr;
+  gap: 0;
+}
+
+.about.is-interactive .about__line.is-active {
+  opacity: 1;
+  background: rgba(237, 234, 230, 0.035);
+}
+
+.about.is-interactive .about__line.is-active .about__num {
+  color: var(--c-red-light);
+}
+
+.about.is-interactive .about__line.is-active .about__content {
+  grid-template-rows: auto 1fr;
+  gap: var(--gap-s);
+}
+
+.about.is-interactive .about__line.is-active .about__statement::after {
+  animation: pixel-blink 1s steps(1) infinite;
+}
+
+@keyframes pixel-blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+}

@@ -1,0 +1,43 @@
+/* =========================================================
+   HERO — pixels que se montam no polvo
+   ========================================================= */
+
+.hero__stage {
+  position: relative;
+  height: 100vh;   /* fallback */
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__content {
+  position: absolute;
+  inset: auto var(--pad-x) clamp(2rem, 6vh, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-m);
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero__title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: var(--fs-hero);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.hero__hint {
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}

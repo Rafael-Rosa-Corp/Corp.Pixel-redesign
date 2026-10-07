@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corporação Pixel — Nada é por acaso.</title>
+  <meta name="description" content="Estúdio digital do sul de Minas. Traduzimos a identidade que o seu negócio já tem em sites feitos à mão, pensados linha por linha.">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Cantarell:wght@400;700&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/css/main.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- === HEADER (fixo, fora do smooth-wrapper) === -->
+  <header class="site-header">
+    <a class="site-header__brand" href="#topo">Corporação Pixel</a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="menu">[ MENU ]</button>
+  </header>
+
+  <!-- === MENU (tela cheia) === -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" inert>
+    <div class="menu__top">
+      <span class="menu__tagline">Nada é por acaso.</span>
+      <a class="menu__brand" href="#topo" data-menu-link aria-label="Corporação Pixel, voltar ao início">
+        <canvas class="menu__logo" data-logo="menu" aria-hidden="true"></canvas>
+        <span class="menu__brand-name">Corporação Pixel</span>
+      </a>
+      <button class="menu__close" type="button">[ FECHAR ]</button>
+    </div>
+
+    <nav class="menu__nav" aria-label="Menu principal">
+      <ol class="menu__list">
+        <li class="menu__row menu__row--1">
+          <a class="menu__link is-current" href="#topo" data-menu-link aria-current="true">Início</a>
+          <span class="menu__marker" aria-hidden="true"></span>
+        </li>
+        <li class="menu__row menu__row--2">
+          <a class="menu__link" href="#trabalhos" data-menu-link>Trabalhos</a>
+        </li>
+        <li class="menu__row menu__row--3">
+          <a class="menu__link" href="#processo" data-menu-link>Processo</a>
+        </li>
+        <li class="menu__row menu__row--4">
+          <a class="menu__link" href="#sobre" data-menu-link>Sobre</a>
+        </li>
+      </ol>
+      <div class="menu__secondary">
+        <a class="menu__secondary-link" href="#contato" data-menu-link>Contato</a>
+        <a class="menu__secondary-link" href="#" data-whatsapp target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a class="menu__secondary-link" href="#" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="conteudo">
+
+        <!-- === HERO === -->
+        <section class="hero" id="topo">
+          <div class="hero__stage">
+            <canvas class="hero__canvas" role="img" aria-label="Logo da Corporação Pixel: um polvo em pixel art usando óculos escuros"></canvas>
+            <div class="hero__content">
+              <h1 class="hero__title">Nada é por acaso.</h1>
+              <p class="hero__hint">Role para montar ↓</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- === MANIFESTO === -->
+        <section class="manifesto" aria-labelledby="manifesto-title">
+          <div class="manifesto__stage">
+            <span class="manifesto__label">// manifesto</span>
+            <h2 class="sr-only" id="manifesto-title">A identidade vem primeiro. O site, depois.</h2>
+            <p class="manifesto__line manifesto__line--top" aria-hidden="true">A identidade</p>
+            <div class="manifesto__body">
+              <p class="manifesto__kicker">O site, depois.</p>
+              <p class="manifesto__text">Não criamos marcas do zero: traduzimos a identidade que o seu negócio já tem para o digital. Cada cor, cada fonte, cada movimento existe por um motivo. [TEXTO FINAL DO MANIFESTO]</p>
+            </div>
+            <p class="manifesto__line manifesto__line--bottom" aria-hidden="true">Vem primeiro</p>
+          </div>
+        </section>
+
+        <!-- === TRABALHOS === -->
+        <section class="works" id="trabalhos" aria-labelledby="works-title">
+          <header class="works__header">
+            <h2 class="works__title" id="works-title">Trabalhos</h2>
+            <span class="works__count">02 projetos</span>
+          </header>
+
+          <div class="works__grid">
+            <article class="work-card">
+              <a class="work-card__link" href="#trabalhos">
+                <figure class="work-card__media" data-pixel-reveal>
+                  <img class="work-card__img" src="/images/work-arquiteta.svg" alt="[Descrição da imagem do site da arquiteta]" width="1200" height="900" loading="lazy">
+                </figure>
+                <div class="work-card__info">
+                  <h3 class="work-card__name">[Nome da arquiteta]</h3>
+                  <span class="work-card__tag">Site institucional · Cliente</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="work-card">
+              <a class="work-card__link" href="#trabalhos">
+                <figure class="work-card__media" data-pixel-reveal>
+                  <img class="work-card__img" src="/images/work-raiz.svg" alt="[Descrição da imagem do Raíz]" width="1200" height="900" loading="lazy">
+                </figure>
+                <div class="work-card__info">
+                  <h3 class="work-card__name">Raíz</h3>
+                  <span class="work-card__tag">PWA · Produto próprio</span>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- Lab -->
+          <div class="lab">
+            <header class="lab__header">
+              <h3 class="lab__title">Lab</h3>
+              <span class="lab__subtitle">Estudos e experimentos de interação</span>
+            </header>
+            <ul class="lab__list">
+              <li class="lab__item">
+                <div class="lab__media">[Vídeo do estudo]</div>
+                <span class="lab__name">Puzzle reveal · GSAP ScrollTrigger</span>
+              </li>
+              <li class="lab__item">
+                <div class="lab__media">[Vídeo do estudo]</div>
+                <span class="lab__name">[Próximo estudo]</span>
+              </li>
+              <li class="lab__item">
+                <div class="lab__media">[Vídeo do estudo]</div>
+                <span class="lab__name">[Próximo estudo]</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- === PROCESSO === -->
+        <section class="process" id="processo" aria-labelledby="process-title">
+          <div class="process__stage">
+            <p class="process__bg" aria-hidden="true">Processo — do briefing ao ar</p>
+
+            <header class="process__header">
+              <span class="process__label">// processo</span>
+              <h2 class="process__title" id="process-title">Como trabalhamos</h2>
+            </header>
+
+            <div class="process__viewport">
+              <ol class="process__track">
+                <li class="process-card">
+                  <div class="process-card__media">[Print do formulário / conversa]</div>
+                  <span class="process-card__num">01</span>
+                  <h3 class="process-card__title">Conversa</h3>
+                  <p class="process-card__text">Você preenche um formulário rápido e conversamos para entender o que o seu negócio precisa.</p>
+                </li>
+                <li class="process-card">
+                  <div class="process-card__media">[Logo, cores e fotos da cliente]</div>
+                  <span class="process-card__num">02</span>
+                  <h3 class="process-card__title">Identidade</h3>
+                  <p class="process-card__text">Reunimos o que você já tem: logo, cores, fotos, seus textos e os sites que você gosta.</p>
+                </li>
+                <li class="process-card">
+                  <div class="process-card__media">[Print do Figma]</div>
+                  <span class="process-card__num">03</span>
+                  <h3 class="process-card__title">Layout</h3>
+                  <p class="process-card__text">Desenhamos o site no Figma, já pensando nas animações. Você aprova antes de qualquer código.</p>
+                </li>
+                <li class="process-card">
+                  <div class="process-card__media">[Print do código]</div>
+                  <span class="process-card__num">04</span>
+                  <h3 class="process-card__title">Código</h3>
+                  <p class="process-card__text">Construímos e animamos o site a partir do layout aprovado.</p>
+                </li>
+                <li class="process-card">
+                  <div class="process-card__media">[Antes / depois de um ajuste]</div>
+                  <span class="process-card__num">05</span>
+                  <h3 class="process-card__title">Ajustes</h3>
+                  <p class="process-card__text">Você vê o site pronto e nós refinamos o que for preciso. [N] rodadas incluídas.</p>
+                </li>
+                <li class="process-card">
+                  <div class="process-card__media">[Site final publicado]</div>
+                  <span class="process-card__num">06</span>
+                  <h3 class="process-card__title">No ar</h3>
+                  <p class="process-card__text">Publicamos, cuidamos da hospedagem e acompanhamos o site por 1 ano.</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="process__progress" aria-hidden="true">
+              <div class="process__dots">
+                <span class="process__dot is-active"></span>
+                <span class="process__dot"></span>
+                <span class="process__dot"></span>
+                <span class="process__dot"></span>
+                <span class="process__dot"></span>
+                <span class="process__dot"></span>
+              </div>
+              <span class="process__count">01 / 06</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- === SOBRE === -->
+        <section class="about" id="sobre" aria-labelledby="about-title">
+          <header class="about__header">
+            <span class="about__label">// sobre nós</span>
+            <h2 class="about__title" id="about-title">Cada linha, pensada.</h2>
+          </header>
+
+          <ol class="about__lines">
+            <li class="about__line">
+              <span class="about__num">01</span>
+              <div class="about__content">
+                <p class="about__statement">Somos um estúdio digital do sul de Minas.</p>
+                <p class="about__comment">// [um detalhe seu: desde quando, de onde, por quê]</p>
+              </div>
+            </li>
+            <li class="about__line">
+              <span class="about__num">02</span>
+              <div class="about__content">
+                <p class="about__statement">Não criamos a sua marca. Traduzimos a que você já tem.</p>
+                <p class="about__comment">// sua identidade já conta uma história. O site só precisa contar direito.</p>
+              </div>
+            </li>
+            <li class="about__line">
+              <span class="about__num">03</span>
+              <div class="about__content">
+                <p class="about__statement">Toda animação precisa de um motivo.</p>
+                <p class="about__comment">// se não ajuda a contar a sua história, ela sai.</p>
+              </div>
+            </li>
+            <li class="about__line">
+              <span class="about__num">04</span>
+              <div class="about__content">
+                <p class="about__statement">Código escrito à mão. Nada de template.</p>
+                <p class="about__comment">// cada site começa do zero, a partir da sua identidade.</p>
+              </div>
+            </li>
+            <li class="about__line">
+              <span class="about__num">05</span>
+              <div class="about__content">
+                <p class="about__statement">Você fala direto com quem faz o seu site.</p>
+                <p class="about__comment">// do primeiro contato até um ano depois de o site ir ao ar.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- === CONTATO === -->
+        <section class="contact" id="contato" aria-labelledby="contact-title">
+          <div class="contact__intro">
+            <span class="contact__label">// briefing rápido</span>
+            <h2 class="contact__title" id="contact-title">Comece<br>por aqui.</h2>
+            <p class="contact__text">Três cliques e a mensagem se escreve sozinha. Você só aperta enviar.</p>
+            <a class="contact__email" href="mailto:[EMAIL]@pixelcorp.tech">[EMAIL]@pixelcorp.tech</a>
+          </div>
+
+          <form class="briefing" data-briefing>
+            <fieldset class="briefing__group">
+              <legend class="briefing__question">01 — Qual é o seu negócio?</legend>
+              <div class="briefing__options">
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="sou profissional liberal"><span class="briefing__pill">Profissional liberal</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um comércio local"><span class="briefing__pill">Comércio local</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um restaurante/café"><span class="briefing__pill">Restaurante ou café</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um negócio"><span class="briefing__pill">Outro</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="briefing__group">
+              <legend class="briefing__question">02 — Você já tem identidade visual?</legend>
+              <div class="briefing__options">
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="identidade" value="já tenho identidade visual completa"><span class="briefing__pill">Sim, completa</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="identidade" value="por enquanto tenho só o logo"><span class="briefing__pill">Só o logo</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="identidade" value="ainda não tenho identidade visual"><span class="briefing__pill">Ainda não</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="briefing__group">
+              <legend class="briefing__question">03 — Para quando?</legend>
+              <div class="briefing__options">
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="prazo" value="ainda este mês"><span class="briefing__pill">Este mês</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="prazo" value="nos próximos 3 meses"><span class="briefing__pill">Próximos 3 meses</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="prazo" value="sem pressa, no tempo certo"><span class="briefing__pill">Sem pressa</span></label>
+              </div>
+            </fieldset>
+
+            <div class="briefing__preview">
+              <span class="briefing__preview-label">// sua mensagem</span>
+              <p class="briefing__message" aria-live="polite"><span data-briefing-message>Oi, Corporação Pixel! ____, ____ e queria o site ____.</span><span class="briefing__cursor" aria-hidden="true"></span></p>
+            </div>
+
+            <a class="briefing__cta" href="#" data-briefing-cta data-whatsapp target="_blank" rel="noopener">Enviar pelo WhatsApp →</a>
+          </form>
+        </section>
+
+        <!-- === FOOTER === -->
+        <footer class="site-footer">
+          <span class="site-footer__brand">Corporação Pixel</span>
+          <span class="site-footer__copy">© 2026 Corporação Pixel</span>
+          <div class="site-footer__links">
+            <a class="site-footer__link" href="#" target="_blank" rel="noopener">Instagram</a>
+            <a class="site-footer__link" href="https://github.com/Rafael-Rosa-Corp" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

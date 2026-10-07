@@ -1,0 +1,48 @@
+/* =========================================================
+   MANIFESTO — duas linhas gigantes que se abrem
+   Estado padrão (sem JS / movimento reduzido) = aberto.
+   O JS fecha as linhas no início e abre com o scroll.
+   ========================================================= */
+
+.manifesto__stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vh, 3.5rem);
+  padding: var(--section-y) clamp(1rem, 2vw, 2rem);
+  overflow: hidden;
+}
+
+.manifesto__line {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: var(--fs-giant);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.manifesto__body {
+  width: 100%;
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+.manifesto__kicker {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  line-height: 1.2;
+  color: var(--c-red-light);
+}
+
+.manifesto__text {
+  color: var(--c-text-soft);
+}

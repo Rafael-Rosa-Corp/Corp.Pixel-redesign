@@ -1,0 +1,12 @@
+/* Arquivo de entrada: importa tudo na ordem certa */
+@import './tokens.css';
+@import './base.css';
+@import './header.css';
+@import './menu.css';
+@import './hero.css';
+@import './manifesto.css';
+@import './works.css';
+@import './process.css';
+@import './about.css';
+@import './contact.css';
+@import './footer.css';

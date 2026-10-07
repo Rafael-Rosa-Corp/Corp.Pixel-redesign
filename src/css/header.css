@@ -1,0 +1,35 @@
+/* =========================================================
+   HEADER — fixo no topo
+   ========================================================= */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-m);
+  height: var(--header-h);
+  padding-inline: var(--pad-x);
+  color: var(--c-white);
+}
+
+.site-header__brand {
+  font-family: var(--f-pixel);
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.375rem);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-header__toggle {
+  min-height: var(--tap);
+  padding: 0 0.25rem;
+  background: none;
+  border: 0;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: pre;
+  cursor: pointer;
+}

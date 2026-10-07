@@ -1,0 +1,50 @@
+/* =========================================================
+   TOKENS — cores, fontes e espaçamentos do site inteiro.
+   Mude aqui e o site todo acompanha.
+   ========================================================= */
+
+:root {
+  /* --- Cores da marca --- */
+  --c-bg: #121212;          /* fundo */
+  --c-surface: #1C1A22;     /* placeholders, caixas */
+  --c-text: #EDEAE6;        /* texto principal */
+  --c-text-soft: #CFCAD3;   /* parágrafos */
+  --c-muted: #A9A4AE;       /* rótulos, legendas */
+  --c-red: #A21231;         /* vermelho/vinho principal */
+  --c-red-light: #C8455F;   /* vermelho legível sobre fundo escuro */
+  --c-red-pale: #F6DDE2;    /* texto suave sobre o vermelho */
+  --c-purple: #352664;
+  --c-violet: #492B61;
+  --c-white: #FFFFFF;
+  --c-line: rgba(237, 234, 230, 0.1);
+  --c-line-strong: rgba(237, 234, 230, 0.16);
+  --c-line-dark: rgba(18, 18, 18, 0.35);
+
+  /* --- Fontes --- */
+  --f-display: 'Arvo', Georgia, serif;
+  --f-body: 'Cantarell', system-ui, sans-serif;
+  --f-pixel: 'Pixelify Sans', ui-monospace, monospace;
+
+  /* --- Escala tipográfica (fluida) --- */
+  --fs-label: clamp(0.8125rem, 0.75rem + 0.2vw, 0.9375rem);
+  --fs-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --fs-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --fs-h3: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --fs-h2: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  --fs-hero: clamp(2.5rem, 1.2rem + 5.4vw, 7rem);
+  --fs-giant: clamp(2rem, 9.6vw, 9.5rem);
+  --fs-menu: clamp(2.5rem, 1rem + 7.6vw, 8rem);
+
+  /* --- Espaçamentos --- */
+  --pad-x: clamp(1.25rem, 5vw, 4rem);
+  --section-y: clamp(5rem, 3rem + 8vw, 9rem);
+  --gap-s: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+  --gap-m: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --gap-l: clamp(2rem, 1.4rem + 2.6vw, 4rem);
+  --gap-xl: clamp(3rem, 2rem + 5vw, 6rem);
+
+  /* --- Outros --- */
+  --header-h: clamp(4rem, 3.4rem + 2vw, 5.5rem);
+  --tap: 2.75rem; /* área mínima de toque (44px) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -1,0 +1,148 @@
+/* =========================================================
+   TRABALHOS — cases + Lab
+   ========================================================= */
+
+.works {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  padding: var(--section-y) var(--pad-x);
+  border-top: 1px solid var(--c-line);
+}
+
+.works__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-m);
+}
+
+.works__title {
+  font-family: var(--f-display);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+}
+
+.works__count {
+  font-family: var(--f-pixel);
+  color: var(--c-muted);
+}
+
+.works__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-l);
+}
+
+@media (min-width: 768px) {
+  .works__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gap-m);
+  }
+}
+
+/* --- Card de case --- */
+.work-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  text-decoration: none;
+}
+
+.work-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-surface);
+}
+
+.work-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Canvas do efeito pixelado (criado pelo JS por cima da imagem) */
+.pixel-reveal__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.pixel-reveal__canvas.is-hidden {
+  visibility: hidden;
+}
+
+.work-card__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gap-s) var(--gap-m);
+}
+
+.work-card__name {
+  font-family: var(--f-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.work-card__tag {
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+/* --- Lab --- */
+.lab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding-top: var(--gap-l);
+}
+
+.lab__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--gap-s) var(--gap-m);
+}
+
+.lab__title {
+  font-family: var(--f-pixel);
+  font-weight: 600;
+  font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+}
+
+.lab__subtitle {
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+.lab__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--gap-m);
+}
+
+.lab__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.lab__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--c-line-strong);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+.lab__name {
+  font-size: var(--fs-label);
+}

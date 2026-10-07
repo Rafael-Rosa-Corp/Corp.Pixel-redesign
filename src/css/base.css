@@ -1,0 +1,97 @@
+/* =========================================================
+   BASE — reset e estilos globais
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--f-body);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+h1, h2, h3, p, figure, ol, ul, fieldset {
+  margin: 0;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+}
+
+img, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-red-light);
+  outline-offset: 4px;
+}
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link "pular para o conteúdo" (acessibilidade) */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.75rem 1rem;
+  background: var(--c-text);
+  color: var(--c-bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Rótulos "// texto" usados em várias seções */
+.manifesto__label,
+.process__label,
+.about__label,
+.contact__label {
+  display: block;
+  font-family: var(--f-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}

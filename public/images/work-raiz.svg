@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <!-- Placeholder: troque por um print do Raíz (ex.: work-raiz.jpg) -->
+  <rect width="1200" height="900" fill="#492B61"/>
+  <circle cx="420" cy="420" r="260" fill="#A21231"/>
+  <circle cx="760" cy="500" r="200" fill="#C8455F"/>
+  <rect x="820" y="140" width="260" height="160" fill="#EDEAE6"/>
+  <rect x="120" y="700" width="560" height="40" fill="#121212"/>
+  <text x="140" y="820" font-family="monospace" font-size="34" fill="#CFCAD3">[imagem do Raíz]</text>
+</svg>

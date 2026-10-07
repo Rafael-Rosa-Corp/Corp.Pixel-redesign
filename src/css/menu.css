@@ -1,0 +1,173 @@
+/* =========================================================
+   MENU — tela cheia, itens em escada
+   ========================================================= */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 0 clamp(1rem, 2vw, 2rem) clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--c-red);
+  color: #FBEFF1;
+  overflow-y: auto;
+  visibility: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.7s var(--ease-out), visibility 0s linear 0.7s;
+}
+
+.menu.is-open {
+  visibility: visible;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.7s var(--ease-out), visibility 0s;
+}
+
+/* --- Topo: frase / logo / fechar --- */
+.menu__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--gap-m);
+  padding-block: clamp(1rem, 2vw, 1.5rem) var(--gap-s);
+}
+
+.menu__tagline {
+  padding-top: 0.6rem;
+  font-family: var(--f-pixel);
+  font-size: var(--fs-label);
+}
+
+.menu__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.menu__logo {
+  width: clamp(4rem, 3rem + 4vw, 6.5rem);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.menu__brand-name {
+  font-family: var(--f-pixel);
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1.125rem);
+  color: var(--c-bg);
+}
+
+.menu__close {
+  justify-self: end;
+  min-height: var(--tap);
+  padding: 0 0.25rem;
+  background: none;
+  border: 0;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: pre;
+  cursor: pointer;
+}
+
+/* --- Itens grandes em escada --- */
+.menu__nav {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.menu__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding-block: clamp(0.25rem, 0.6vw, 0.5rem);
+  overflow: hidden; /* máscara para a entrada dos textos */
+}
+
+.menu__row + .menu__row {
+  border-top: 1px solid var(--c-line-dark);
+}
+
+.menu__row--2 { padding-left: 12%; }
+.menu__row--3 { padding-left: 24%; }
+.menu__row--4 { justify-content: flex-end; }
+
+.menu__link {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-size: var(--fs-menu);
+  line-height: 1.12;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu__link:hover {
+  color: var(--c-white);
+}
+
+.menu__link.is-current {
+  color: var(--c-bg);
+}
+
+.menu__marker {
+  flex: 0 0 auto;
+  width: clamp(0.75rem, 0.5rem + 0.8vw, 1.375rem);
+  aspect-ratio: 1;
+  background: var(--c-bg);
+}
+
+/* --- Links secundários --- */
+.menu__secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: var(--gap-m);
+}
+
+.menu__secondary-link {
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  text-decoration: none;
+}
+
+.menu__secondary-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Desktop: secundários na mesma linha do último item, à esquerda */
+@media (min-width: 768px) {
+  .menu__row--2 { padding-left: 22%; }
+  .menu__row--3 { padding-left: 36%; }
+
+  .menu__secondary {
+    position: absolute;
+    left: 0;
+    bottom: clamp(1.25rem, 2.4vw, 2rem);
+    padding-top: 0;
+  }
+}
+
+/* Celular pequeno: topo vira duas linhas */
+@media (max-width: 479px) {
+  .menu__top {
+    grid-template-columns: 1fr auto;
+  }
+
+  .menu__tagline {
+    display: none;
+  }
+
+  .menu__brand {
+    justify-self: start;
+    flex-direction: row;
+  }
+
+  .menu__logo {
+    width: 3rem;
+  }
+}
