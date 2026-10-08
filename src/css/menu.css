@@ -152,6 +152,26 @@
   }
 }
 
+/* Celular: a lista ocupa toda a altura livre; cada item ganha uma faixa
+   de altura igual e o texto encosta no pé da faixa (mantém a escada) */
+@media (max-width: 767px) {
+  .menu__list {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu__row {
+    flex: 1 1 0;
+    align-items: flex-end;
+    min-height: 4.5rem;
+  }
+
+  .menu__marker {
+    margin-bottom: calc(var(--fs-menu) * 0.42);
+  }
+}
+
 /* Celular pequeno: topo vira duas linhas */
 @media (max-width: 479px) {
   .menu__top {

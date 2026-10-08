@@ -45,10 +45,7 @@
 }
 
 .about__content {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: var(--gap-s);
-  transition: grid-template-rows 0.45s var(--ease-out), gap 0.45s var(--ease-out);
+  min-width: 0;
 }
 
 .about__statement {
@@ -69,11 +66,20 @@
   opacity: 0;
 }
 
+/* O invólucro abre/fecha o comentário (0fr → 1fr) sem cortar linhas */
+.about__comment-wrap {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.45s var(--ease-out);
+}
+
 .about__comment {
   overflow: hidden;
   min-height: 0;
+  padding-top: var(--gap-s);
   font-family: var(--f-pixel);
   font-size: var(--fs-label);
+  line-height: 1.6;
   color: var(--c-muted);
 }
 
@@ -82,9 +88,8 @@
   opacity: 0.35;
 }
 
-.about.is-interactive .about__content {
-  grid-template-rows: auto 0fr;
-  gap: 0;
+.about.is-interactive .about__comment-wrap {
+  grid-template-rows: 0fr;
 }
 
 .about.is-interactive .about__line.is-active {
@@ -96,9 +101,8 @@
   color: var(--c-red-light);
 }
 
-.about.is-interactive .about__line.is-active .about__content {
-  grid-template-rows: auto 1fr;
-  gap: var(--gap-s);
+.about.is-interactive .about__line.is-active .about__comment-wrap {
+  grid-template-rows: 1fr;
 }
 
 .about.is-interactive .about__line.is-active .about__statement::after {
