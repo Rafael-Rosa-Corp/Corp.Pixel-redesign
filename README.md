@@ -72,7 +72,6 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [ ] Nome da arquiteta
 - [ ] Texto final do manifesto
 - [ ] Comentário da linha 01 do Sobre + revisar os textos do Sobre (são rascunho)
-- [ ] Rodadas de ajuste no card 05 (`[N]`)
 - [ ] Número do WhatsApp, e-mail, Instagram
 - [ ] Vídeos do Lab
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
