@@ -180,9 +180,19 @@
   }
 }
 
+/* Desktop (1024px+): o último item (SOBRE) encosta na borda direita e os
+   degraus são iguais entre os 4 — a escada atravessa a tela toda.
+   3.37 = largura da palavra "SOBRE" na Arvo, em "em". Se trocar o texto do
+   último item, ajuste esse número. */
 @media (min-width: 1024px) {
   .menu__nav {
-    --menu-step: 21%; /* tamanho de cada degrau no desktop */
+    --menu-last-w: calc(var(--fs-menu) * 3.37);
+    --menu-step: calc((100% - var(--menu-last-w)) / 3);
+  }
+
+  .menu__row--4 {
+    padding-left: 0;
+    justify-content: flex-end;
   }
 }
 
