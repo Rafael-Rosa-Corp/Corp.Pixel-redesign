@@ -71,13 +71,14 @@
   cursor: pointer;
 }
 
-/* --- Itens grandes em escada --- */
+/* --- Itens grandes em escada ---
+   Base = celular (versão aprovada). Desktop (768px+) logo abaixo. */
 .menu__nav {
+  position: relative;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  --menu-step: 12%; /* recuo de cada degrau da escada (celular) */
+  justify-content: flex-end;
 }
 
 /* A lista ocupa toda a altura livre: cada item ganha uma faixa de
@@ -93,18 +94,18 @@
   display: flex;
   align-items: flex-end;
   gap: clamp(1rem, 2vw, 1.75rem);
-  min-height: 4rem;
+  min-height: 4.5rem;
   padding-block: clamp(0.25rem, 0.6vw, 0.5rem);
-  padding-left: calc(var(--menu-step) * var(--step, 0));
-  border-bottom: 1px solid var(--c-line-dark);
   overflow: hidden; /* máscara para a entrada dos textos */
 }
 
-/* Degraus iguais: cada item anda o mesmo tanto para a direita */
-.menu__row--1 { --step: 0; }
-.menu__row--2 { --step: 1; }
-.menu__row--3 { --step: 2; }
-.menu__row--4 { --step: 3; }
+.menu__row + .menu__row {
+  border-top: 1px solid var(--c-line-dark);
+}
+
+.menu__row--2 { padding-left: 12%; }
+.menu__row--3 { padding-left: 24%; }
+.menu__row--4 { justify-content: flex-end; }
 
 .menu__link {
   display: inline-block;
@@ -113,7 +114,6 @@
   line-height: 1.12;
   text-transform: uppercase;
   text-decoration: none;
-  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
@@ -133,7 +133,7 @@
   background: var(--c-bg);
 }
 
-/* --- Links secundários (faixa própria, abaixo da escada) --- */
+/* --- Links secundários --- */
 .menu__secondary {
   display: flex;
   flex-wrap: wrap;
@@ -151,15 +151,38 @@
   text-underline-offset: 4px;
 }
 
+/* --- Desktop / tablet (768px+) ---
+   Degraus iguais, linha embaixo de todos os itens, links secundários
+   numa faixa própria abaixo da escada */
 @media (min-width: 768px) {
   .menu__nav {
-    --menu-step: 18%; /* degrau no tablet */
+    --menu-step: 18%; /* tamanho de cada degrau no tablet */
+  }
+
+  .menu__row {
+    min-height: 4rem;
+    border-bottom: 1px solid var(--c-line-dark);
+  }
+
+  .menu__row + .menu__row {
+    border-top: 0;
+  }
+
+  .menu__row--2 { padding-left: var(--menu-step); }
+  .menu__row--3 { padding-left: calc(var(--menu-step) * 2); }
+  .menu__row--4 {
+    padding-left: calc(var(--menu-step) * 3);
+    justify-content: flex-start;
+  }
+
+  .menu__link {
+    white-space: nowrap;
   }
 }
 
 @media (min-width: 1024px) {
   .menu__nav {
-    --menu-step: 21%; /* degrau no desktop */
+    --menu-step: 21%; /* tamanho de cada degrau no desktop */
   }
 }
 

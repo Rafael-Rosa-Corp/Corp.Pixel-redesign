@@ -33,8 +33,7 @@
   --fs-h2: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
   --fs-hero: clamp(2.5rem, 1.2rem + 5.4vw, 7rem);
   --fs-giant: clamp(2rem, 9.6vw, 9.5rem);
-  --fs-menu: clamp(2.5rem, min(1rem + 7.6vw, 13vh), 8rem);
-  --fs-menu: clamp(2.5rem, min(1rem + 7.6vw, 13svh), 8rem); /* também respeita a altura da tela */
+  --fs-menu: clamp(2.5rem, 1rem + 7.6vw, 8rem);
 
   /* --- Espaçamentos --- */
   --pad-x: clamp(1.25rem, 5vw, 4rem);
@@ -48,4 +47,13 @@
   --header-h: clamp(4rem, 3.4rem + 2vw, 5.5rem);
   --tap: 2.75rem; /* área mínima de toque (44px) */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* A partir de 768px, o tamanho dos itens do menu também respeita a altura
+   da tela (evita estourar em monitor largo e baixo) */
+@media (min-width: 768px) {
+  :root {
+    --fs-menu: clamp(2.5rem, min(1rem + 7.6vw, 13vh), 8rem);
+    --fs-menu: clamp(2.5rem, min(1rem + 7.6vw, 13svh), 8rem);
+  }
 }
