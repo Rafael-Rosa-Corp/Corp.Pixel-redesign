@@ -66,10 +66,11 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 
 ## Pendências (textos entre colchetes no index.html)
 
-- [ ] Imagens dos cases → coloque em `public/images/` e troque o `src` dos `<img>` em "TRABALHOS"
-      (hoje são `work-arquiteta.svg` e `work-raiz.svg`, provisórios). Escreva também o `alt`.
+- [ ] Imagem do Raíz → coloque em `public/images/` e troque o `src` do `<img>` em "TRABALHOS"
+      (hoje é `work-raiz.svg`, provisório). Escreva também o `alt`.
+- [ ] Case da arquiteta: fora por enquanto (aguardando resposta sobre o site novo).
+      Ao voltar a ter 2 cases, tire a classe `works__grid--single` do grid.
 - [ ] Imagens do processo → trocar cada `.process-card__media` por um `<img>`
-- [ ] Nome da arquiteta
 - [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
 - [ ] Número do WhatsApp e Instagram
 - [ ] Vídeos do Lab

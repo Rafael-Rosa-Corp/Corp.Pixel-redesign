@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <!-- Placeholder: troque por um print do site da arquiteta (ex.: work-arquiteta.jpg) -->
-  <rect width="1200" height="900" fill="#352664"/>
-  <rect x="120" y="140" width="420" height="620" fill="#492B61"/>
-  <rect x="600" y="140" width="480" height="300" fill="#A21231"/>
-  <rect x="600" y="480" width="230" height="280" fill="#EDEAE6"/>
-  <rect x="850" y="480" width="230" height="280" fill="#121212"/>
-  <text x="140" y="820" font-family="monospace" font-size="34" fill="#CFCAD3">[imagem do site da arquiteta]</text>
-</svg>

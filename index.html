@@ -92,22 +92,11 @@
         <section class="works" id="trabalhos" aria-labelledby="works-title">
           <header class="works__header">
             <h2 class="works__title" id="works-title">Trabalhos</h2>
-            <span class="works__count">02 projetos</span>
           </header>
 
-          <div class="works__grid">
-            <article class="work-card">
-              <a class="work-card__link" href="#trabalhos">
-                <figure class="work-card__media" data-pixel-reveal>
-                  <img class="work-card__img" src="/images/work-arquiteta.svg" alt="[Descrição da imagem do site da arquiteta]" width="1200" height="900" loading="lazy">
-                </figure>
-                <div class="work-card__info">
-                  <h3 class="work-card__name">[Nome da arquiteta]</h3>
-                  <span class="work-card__tag">Site institucional · Cliente</span>
-                </div>
-              </a>
-            </article>
-
+          <!-- Com 1 case: "works__grid--single" deixa o card na largura toda.
+               Quando tiver 2 ou mais, é só tirar essa classe. -->
+          <div class="works__grid works__grid--single">
             <article class="work-card">
               <a class="work-card__link" href="#trabalhos">
                 <figure class="work-card__media" data-pixel-reveal>

@@ -43,6 +43,17 @@
   }
 }
 
+/* Um case só, em destaque: largura toda e imagem mais panorâmica no desktop */
+.works__grid--single {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .works__grid--single .work-card__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 /* --- Card de case --- */
 .work-card__link {
   display: flex;
