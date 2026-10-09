@@ -70,7 +70,6 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
       (hoje é `work-raiz.svg`, provisório). Escreva também o `alt`.
 - [ ] Case da arquiteta: fora por enquanto (aguardando resposta sobre o site novo).
       Ao voltar a ter 2 cases, tire a classe `works__grid--single` do grid.
-- [ ] Imagem do card 03 (Layout) do processo → `public/images/process/03-layout.webp` (as outras já estão)
 - [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
 - [ ] Número do WhatsApp e Instagram
 - [ ] Vídeos do Lab
