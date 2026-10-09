@@ -147,13 +147,28 @@
   gap: var(--gap-s);
 }
 
+/* Proporção padrão dos vídeos do Lab: 1280×592 (tela gravada sem a barra do navegador).
+   Todos os vídeos são exportados nessa medida, então não sobra borda nem corta lateral. */
 .lab__media {
   display: grid;
   place-items: center;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1280 / 592;
   border: 1px solid var(--c-line-strong);
   font-size: var(--fs-label);
   color: var(--c-muted);
+}
+
+.lab__media--video {
+  display: block;
+  overflow: hidden;
+  background: var(--c-surface);
+}
+
+.lab__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .lab__name {
