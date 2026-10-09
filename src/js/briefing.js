@@ -31,6 +31,8 @@ export function initBriefing() {
     };
   }
 
+  let wasComplete = false;
+
   function update() {
     const { tipo, identidade, prazo, isOther } = answers();
     other.hidden = !isOther;
@@ -41,6 +43,10 @@ export function initBriefing() {
     output.textContent = message;
     cta.href = whatsappLink(complete ? message : '');
     cta.setAttribute('aria-disabled', String(!complete));
+
+    // Avisa quando o formulário acabou de ficar completo (o botão "acende")
+    if (complete && !wasComplete) form.dispatchEvent(new CustomEvent('briefing:complete'));
+    wasComplete = complete;
   }
 
   // Ao escolher "Outro", o cursor já vai para o campo

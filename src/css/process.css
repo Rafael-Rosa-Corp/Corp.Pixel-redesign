@@ -10,7 +10,6 @@
 
 .process__stage {
   position: relative;
-  background: var(--c-bg); /* cobre o fim da seção Trabalhos, que chega atrasada */
   min-height: 100vh;
   min-height: 100svh;
   display: flex;

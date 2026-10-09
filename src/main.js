@@ -14,6 +14,8 @@ import { initManifesto } from './js/manifesto.js';
 import { initPixelReveal } from './js/pixel-reveal.js';
 import { initProcess } from './js/process.js';
 import { initAbout } from './js/about.js';
+import { initCtaPixels } from './js/cta-pixels.js';
+import { initSocialIcons } from './js/social-icons.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
@@ -30,6 +32,7 @@ ScrollTrigger.config({ ignoreMobileResize: true });
 initMenu();
 initAnchors();
 initBriefing();
+initSocialIcons();
 
 // Animações separadas por tipo de tela.
 // Quando a condição muda (ex.: girar o celular), tudo é desfeito e refeito.
@@ -52,7 +55,7 @@ mm.add(
         content: '#smooth-content',
         smooth: SCROLL.smooth,
         speed: SCROLL.speed,
-        effects: true, // lê os data-speed do index.html (ex.: Trabalhos e Contato)
+        effects: false,
       });
     }
 
@@ -63,6 +66,7 @@ mm.add(
       initPixelReveal(conditions),
       initProcess(conditions),
       initAbout(conditions),
+      initCtaPixels(conditions),
     ].filter(Boolean);
 
     return () => cleanups.forEach((cleanup) => cleanup());
