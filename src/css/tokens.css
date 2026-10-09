@@ -24,6 +24,7 @@
   --f-display: 'Arvo', Georgia, serif;
   --f-body: 'Cantarell', system-ui, sans-serif;
   --f-pixel: 'Pixelify Sans', ui-monospace, monospace;
+  --ls-pixel: 0.04em; /* respiro entre as letras da fonte pixel (legibilidade) */
 
   /* --- Escala tipográfica (fluida) --- */
   --fs-label: clamp(1rem, 0.75rem + 0.2vw, 0.9375rem);

@@ -26,6 +26,7 @@
 
 .works__count {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   color: var(--c-muted);
 }
 
@@ -113,6 +114,7 @@
 
 .lab__title {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-weight: 600;
   font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
 }

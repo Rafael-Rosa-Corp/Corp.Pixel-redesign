@@ -17,9 +17,9 @@
 
 .site-header__brand {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.375rem);
   text-decoration: none;
-  letter-spacing: 0.02em;
 }
 
 .site-header__toggle {

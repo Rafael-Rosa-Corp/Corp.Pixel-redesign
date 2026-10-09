@@ -123,6 +123,7 @@
 
 .process-card__num {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   color: var(--c-red-light);
 }
 
@@ -165,6 +166,7 @@
 
 .process__count {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: var(--fs-label);
   color: var(--c-muted);
 }

@@ -40,6 +40,7 @@
 
 .about__num {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   color: var(--c-muted);
   transition: color 0.4s ease;
 }
@@ -75,6 +76,7 @@
 .about__comment {
   padding-top: var(--gap-s);
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: var(--fs-label);
   line-height: 1.6;
   color: var(--c-muted);
