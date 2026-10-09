@@ -271,9 +271,14 @@
               <legend class="briefing__question">01 — Qual é o seu negócio?</legend>
               <div class="briefing__options">
                 <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="sou profissional liberal"><span class="briefing__pill">Profissional liberal</span></label>
-                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um comércio local"><span class="briefing__pill">Comércio local</span></label>
-                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um restaurante/café"><span class="briefing__pill">Restaurante ou café</span></label>
-                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho um negócio"><span class="briefing__pill">Outro</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho uma loja"><span class="briefing__pill">Loja ou comércio</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho uma empresa de serviços"><span class="briefing__pill">Serviços</span></label>
+                <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="outro"><span class="briefing__pill">Outro</span></label>
+              </div>
+              <!-- Aparece só quando "Outro" é escolhido -->
+              <div class="briefing__other" data-briefing-other hidden>
+                <label class="briefing__other-label" for="briefing-outro">Conta pra gente o que você faz</label>
+                <input class="briefing__other-input" id="briefing-outro" name="outro" type="text" maxlength="60" autocomplete="off" placeholder="ex.: fotografia, escola de música, ONG">
               </div>
             </fieldset>
 
