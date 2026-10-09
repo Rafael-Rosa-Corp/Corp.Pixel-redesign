@@ -92,6 +92,7 @@ button {
 .contact__label {
   display: block;
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: var(--fs-label);
   color: var(--c-muted);
 }

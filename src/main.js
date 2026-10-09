@@ -14,6 +14,7 @@ import { initManifesto } from './js/manifesto.js';
 import { initPixelReveal } from './js/pixel-reveal.js';
 import { initProcess } from './js/process.js';
 import { initAbout } from './js/about.js';
+import { initParallax } from './js/parallax.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
@@ -56,6 +57,7 @@ mm.add(
       initPixelReveal(conditions),
       initProcess(conditions),
       initAbout(conditions),
+      initParallax(conditions),
     ].filter(Boolean);
 
     return () => cleanups.forEach((cleanup) => cleanup());

@@ -35,6 +35,7 @@
 .menu__tagline {
   padding-top: 0.6rem;
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: var(--fs-label);
 }
 
@@ -54,6 +55,7 @@
 
 .menu__brand-name {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1.125rem);
   color: var(--c-bg);
 }

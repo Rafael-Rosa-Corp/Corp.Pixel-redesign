@@ -70,7 +70,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
       (hoje são `work-arquiteta.svg` e `work-raiz.svg`, provisórios). Escreva também o `alt`.
 - [ ] Imagens do processo → trocar cada `.process-card__media` por um `<img>`
 - [ ] Nome da arquiteta
-- [ ] Comentário da linha 01 do Sobre + revisar os textos do Sobre (são rascunho)
+- [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
 - [ ] Número do WhatsApp e Instagram
 - [ ] Vídeos do Lab
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)

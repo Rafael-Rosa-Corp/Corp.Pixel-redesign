@@ -59,6 +59,7 @@
   margin-bottom: var(--gap-m);
   padding: 0;
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
 }
 
@@ -168,6 +169,7 @@
 
 .briefing__preview-label {
   font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: 0.875rem;
   color: var(--c-muted);
 }
