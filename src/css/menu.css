@@ -96,12 +96,10 @@
   gap: clamp(1rem, 2vw, 1.75rem);
   min-height: 4.5rem;
   padding-block: clamp(0.25rem, 0.6vw, 0.5rem);
+  border-bottom: 1px solid var(--c-line-dark); /* linha embaixo de cada item */
   overflow: hidden; /* máscara para a entrada dos textos */
 }
 
-.menu__row + .menu__row {
-  border-top: 1px solid var(--c-line-dark);
-}
 
 .menu__row--2 { padding-left: 12%; }
 .menu__row--3 { padding-left: 24%; }
@@ -138,7 +136,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem clamp(1.5rem, 3vw, 2.5rem);
-  padding-top: var(--gap-m);
+  padding-top: var(--gap-l); /* celular: mais distância da escada */
 }
 
 .menu__secondary-link {
@@ -152,47 +150,29 @@
 }
 
 /* --- Desktop / tablet (768px+) ---
-   Degraus iguais, linha embaixo de todos os itens, links secundários
-   numa faixa própria abaixo da escada */
-@media (min-width: 768px) {
-  .menu__nav {
-    --menu-step: 18%; /* tamanho de cada degrau no tablet */
-  }
-
-  .menu__row {
-    min-height: 4rem;
-    border-bottom: 1px solid var(--c-line-dark);
-  }
-
-  .menu__row + .menu__row {
-    border-top: 0;
-  }
-
-  .menu__row--2 { padding-left: var(--menu-step); }
-  .menu__row--3 { padding-left: calc(var(--menu-step) * 2); }
-  .menu__row--4 {
-    padding-left: calc(var(--menu-step) * 3);
-    justify-content: flex-start;
-  }
-
-  .menu__link {
-    white-space: nowrap;
-  }
-}
-
-/* Desktop (1024px+): o último item (SOBRE) encosta na borda direita e os
-   degraus são iguais entre os 4 — a escada atravessa a tela toda.
+   Escada que atravessa a tela: INÍCIO colado na esquerda, SOBRE colado na
+   direita e degraus iguais entre os 4. Links secundários numa faixa própria.
    3.37 = largura da palavra "SOBRE" na Arvo, em "em". Se trocar o texto do
    último item, ajuste esse número. */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .menu__nav {
     --menu-last-w: calc(var(--fs-menu) * 3.37);
     --menu-step: calc((100% - var(--menu-last-w)) / 3);
   }
 
-  .menu__row--4 {
-    padding-left: 0;
-    justify-content: flex-end;
+  .menu__row {
+    min-height: 4rem;
+  }
+
+  .menu__row--2 { padding-left: var(--menu-step); }
+  .menu__row--3 { padding-left: calc(var(--menu-step) * 2); }
+
+  .menu__link {
+    white-space: nowrap;
+  }
+
+  .menu__secondary {
+    padding-top: var(--gap-m);
   }
 }
 

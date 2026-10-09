@@ -40,10 +40,6 @@
   color: var(--c-red-pale);
 }
 
-.contact__email {
-  color: var(--c-red-pale);
-  text-underline-offset: 4px;
-}
 
 /* --- Formulário --- */
 .briefing {

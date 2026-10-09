@@ -58,7 +58,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 
 - **Cores/fontes:** `src/css/tokens.css`
 - **WhatsApp:** `src/js/config.js` → `WHATSAPP_NUMBER`
-- **E-mail e Instagram:** procure `[EMAIL]` e `Instagram` no `index.html`
+- **Instagram:** procure `Instagram` no `index.html`
 - **Velocidade do hero:** `SETTINGS` no topo de `src/js/hero.js`
 - **Duração do manifesto:** `end: '+=140%'` em `src/js/manifesto.js`
 - **Profundidade do processo:** `BG_SPEED` em `src/js/process.js`
@@ -72,6 +72,6 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [ ] Nome da arquiteta
 - [ ] Texto final do manifesto
 - [ ] Comentário da linha 01 do Sobre + revisar os textos do Sobre (são rascunho)
-- [ ] Número do WhatsApp, e-mail, Instagram
+- [ ] Número do WhatsApp e Instagram
 - [ ] Vídeos do Lab
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
