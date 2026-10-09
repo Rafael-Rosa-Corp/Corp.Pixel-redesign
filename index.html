@@ -89,13 +89,13 @@
         </section>
 
         <!-- === TRABALHOS === -->
-        <section class="works" id="trabalhos" aria-labelledby="works-title">
-          <header class="works__header" data-parallax="120">
+        <section class="works" id="trabalhos" aria-labelledby="works-title" data-speed="0.85">
+          <header class="works__header">
             <h2 class="works__title" id="works-title">Trabalhos</h2>
             <span class="works__count">02 projetos</span>
           </header>
 
-          <div class="works__grid" data-parallax="120">
+          <div class="works__grid">
             <article class="work-card">
               <a class="work-card__link" href="#trabalhos">
                 <figure class="work-card__media" data-pixel-reveal>
@@ -122,7 +122,7 @@
           </div>
 
           <!-- Lab -->
-          <div class="lab" data-parallax="120">
+          <div class="lab">
             <header class="lab__header">
               <h3 class="lab__title">Lab</h3>
               <span class="lab__subtitle">Estudos e experimentos de interação</span>
@@ -209,64 +209,67 @@
             <h2 class="about__title" id="about-title">Cada linha, pensada.</h2>
           </header>
 
-          <ol class="about__lines">
-            <li class="about__line">
-              <span class="about__num">01</span>
-              <div class="about__content">
-                <p class="about__statement">Somos um estúdio digital do sul de Minas.</p>
-                <div class="about__comment-wrap">
-                  <p class="about__comment">// daqui do sul de Minas, para qualquer lugar.</p>
+          <!-- invólucro sem flex: necessário para a trava (pin) da lista funcionar -->
+          <div class="about__pin">
+              <ol class="about__lines">
+              <li class="about__line">
+                <span class="about__num">01</span>
+                <div class="about__content">
+                  <p class="about__statement">Somos um estúdio digital do sul de Minas.</p>
+                  <div class="about__comment-wrap">
+                    <p class="about__comment">// daqui do sul de Minas, para qualquer lugar.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="about__line">
-              <span class="about__num">02</span>
-              <div class="about__content">
-                <p class="about__statement">Não criamos a sua marca. Traduzimos a que você já tem.</p>
-                <div class="about__comment-wrap">
-                  <p class="about__comment">// sua identidade já conta uma história. O site só precisa contar direito.</p>
+              </li>
+              <li class="about__line">
+                <span class="about__num">02</span>
+                <div class="about__content">
+                  <p class="about__statement">Não criamos a sua marca. Traduzimos a que você já tem.</p>
+                  <div class="about__comment-wrap">
+                    <p class="about__comment">// sua identidade já conta uma história. O site só precisa contar direito.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="about__line">
-              <span class="about__num">03</span>
-              <div class="about__content">
-                <p class="about__statement">Seu site trabalha enquanto você trabalha.</p>
-                <div class="about__comment-wrap">
-                  <p class="about__comment">// mostra, explica e convence, até quando você está ocupado.</p>
+              </li>
+              <li class="about__line">
+                <span class="about__num">03</span>
+                <div class="about__content">
+                  <p class="about__statement">Seu site trabalha enquanto você trabalha.</p>
+                  <div class="about__comment-wrap">
+                    <p class="about__comment">// mostra, explica e convence, até quando você está ocupado.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="about__line">
-              <span class="about__num">04</span>
-              <div class="about__content">
-                <p class="about__statement">Código escrito à mão. Nada de template.</p>
-                <div class="about__comment-wrap">
-                  <p class="about__comment">// cada site começa do zero, a partir da sua identidade.</p>
+              </li>
+              <li class="about__line">
+                <span class="about__num">04</span>
+                <div class="about__content">
+                  <p class="about__statement">Código escrito à mão. Nada de template.</p>
+                  <div class="about__comment-wrap">
+                    <p class="about__comment">// cada site começa do zero, a partir da sua identidade.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="about__line">
-              <span class="about__num">05</span>
-              <div class="about__content">
-                <p class="about__statement">Você fala direto com quem faz o seu site.</p>
-                <div class="about__comment-wrap">
-                  <p class="about__comment">// do primeiro contato até um ano depois de o site ir ao ar.</p>
+              </li>
+              <li class="about__line">
+                <span class="about__num">05</span>
+                <div class="about__content">
+                  <p class="about__statement">Você fala direto com quem faz o seu site.</p>
+                  <div class="about__comment-wrap">
+                    <p class="about__comment">// do primeiro contato até um ano depois de o site ir ao ar.</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ol>
+              </li>
+            </ol>
+          </div>
         </section>
 
         <!-- === CONTATO === -->
-        <section class="contact" id="contato" aria-labelledby="contact-title">
-          <div class="contact__intro" data-parallax="120">
+        <section class="contact" id="contato" aria-labelledby="contact-title" data-speed="0.85">
+          <div class="contact__intro">
             <span class="contact__label">// contato</span>
             <h2 class="contact__title" id="contact-title">Comece<br>por aqui.</h2>
             <p class="contact__text">Três cliques e a mensagem se escreve sozinha. Você só aperta enviar.</p>
           </div>
 
-          <form class="briefing" data-briefing data-parallax="120">
+          <form class="briefing" data-briefing>
             <fieldset class="briefing__group">
               <legend class="briefing__question">01 — Qual é o seu negócio?</legend>
               <div class="briefing__options">
@@ -314,8 +317,8 @@
           <span class="site-footer__brand">Corporação Pixel</span>
           <span class="site-footer__copy">© 2026 Corporação Pixel</span>
           <div class="site-footer__links">
-            <a class="site-footer__link" href="#" target="_blank" rel="noopener">Instagram</a>
-            <a class="site-footer__link" href="https://github.com/Rafael-Rosa-Corp" target="_blank" rel="noopener">GitHub</a>
+            <a class="site-footer__link" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg class="site-footer__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path d="M5 3h6v1h-6zM5 4h1v1h-1zM10 4h1v1h-1zM1 5h14v1h-14zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM6 7h4v1h-4zM12 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM14 9h1v1h-1zM1 10h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM5 11h1v1h-1zM10 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM6 12h4v1h-4zM14 12h1v1h-1zM1 13h1v1h-1zM14 13h1v1h-1zM1 14h14v1h-14z"/></svg></a>
+            <a class="site-footer__link" href="https://github.com/Rafael-Rosa-Corp" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="site-footer__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path d="M10 2h1v1h-1zM10 3h1v1h-1zM4 4h1v1h-1zM9 4h1v1h-1zM12 4h1v1h-1zM3 5h1v1h-1zM9 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM8 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM8 7h1v1h-1zM15 7h1v1h-1zM1 8h1v1h-1zM7 8h1v1h-1zM15 8h1v1h-1zM2 9h1v1h-1zM7 9h1v1h-1zM14 9h1v1h-1zM3 10h1v1h-1zM6 10h1v1h-1zM13 10h1v1h-1zM4 11h1v1h-1zM6 11h1v1h-1zM12 11h1v1h-1zM6 12h1v1h-1zM5 13h1v1h-1z"/></svg></a>
           </div>
         </footer>
 

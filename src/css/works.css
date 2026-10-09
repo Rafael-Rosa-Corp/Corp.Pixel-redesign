@@ -3,6 +3,8 @@
    ========================================================= */
 
 .works {
+  position: relative; /* com data-speed ela desliza por cima da seção anterior */
+  background: var(--c-bg);
   display: flex;
   flex-direction: column;
   gap: var(--gap-l);

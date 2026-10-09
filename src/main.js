@@ -14,9 +14,14 @@ import { initManifesto } from './js/manifesto.js';
 import { initPixelReveal } from './js/pixel-reveal.js';
 import { initProcess } from './js/process.js';
 import { initAbout } from './js/about.js';
-import { initParallax } from './js/parallax.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+
+// Ajuste do scroll no desktop (ScrollSmoother)
+const SCROLL = {
+  smooth: 1.1, // segundos para "alcançar" a rolagem: maior = mais suave/arrastado
+  speed: 0.8,  // velocidade geral da rolagem: 1 = normal, menor = menos sensível
+};
 
 // Evita recálculos quando a barra de endereço do celular aparece/some
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -45,8 +50,9 @@ mm.add(
       ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
-        smooth: 1.1,
-        effects: false,
+        smooth: SCROLL.smooth,
+        speed: SCROLL.speed,
+        effects: true, // lê os data-speed do index.html (ex.: Trabalhos e Contato)
       });
     }
 
@@ -57,7 +63,6 @@ mm.add(
       initPixelReveal(conditions),
       initProcess(conditions),
       initAbout(conditions),
-      initParallax(conditions),
     ].filter(Boolean);
 
     return () => cleanups.forEach((cleanup) => cleanup());

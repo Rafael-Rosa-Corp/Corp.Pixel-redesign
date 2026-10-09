@@ -6,13 +6,22 @@ import { gsap } from 'gsap';
 
 const BG_SPEED = 0.35; // velocidade da camada de fundo (0 = parada, 1 = igual aos cards)
 
-// Profundidade dos cards fora de foco (só desktop)
+// Profundidade dos cards fora de foco
 const DEPTH = {
   blur: 4,      // desfoque máximo (px)
   scale: 0.08,  // quanto diminui (0.08 = 8%)
   rotate: 2.5,  // inclinação máxima (graus)
   y: 18,        // deslocamento para baixo (px)
   opacity: 0.35 // quanto apaga
+};
+
+// Versão leve para o celular: sem desfoque (pesado para o celular)
+const DEPTH_MOBILE = {
+  blur: 0,
+  scale: 0.06,
+  rotate: 2,
+  y: 12,
+  opacity: 0.4
 };
 
 export function initProcess({ isMobile, reduceMotion }) {
@@ -36,6 +45,7 @@ export function initProcess({ isMobile, reduceMotion }) {
 
   // O card em foco acompanha o progresso (o 1º no começo, o último no fim).
   // Os outros ficam desfocados, menores e levemente tortos, conforme a distância.
+  const depth = isMobile ? DEPTH_MOBILE : DEPTH;
   function setDepth(progress) {
     const focus = progress * (cards.length - 1);
     cards.forEach((card, i) => {
@@ -43,11 +53,11 @@ export function initProcess({ isMobile, reduceMotion }) {
       const d = Math.min(Math.max(Math.abs(i - focus) - 0.15, 0) / 0.85, 1);
       const side = i < focus ? -1 : 1;
       gsap.set(card, {
-        filter: d > 0.01 ? `blur(${(d * DEPTH.blur).toFixed(2)}px)` : 'none',
-        scale: 1 - d * DEPTH.scale,
-        rotation: side * d * DEPTH.rotate,
-        y: d * DEPTH.y,
-        opacity: 1 - d * DEPTH.opacity,
+        filter: depth.blur && d > 0.01 ? `blur(${(d * depth.blur).toFixed(2)}px)` : 'none',
+        scale: 1 - d * depth.scale,
+        rotation: side * d * depth.rotate,
+        y: d * depth.y,
+        opacity: 1 - d * depth.opacity,
       });
     });
   }
@@ -71,7 +81,7 @@ export function initProcess({ isMobile, reduceMotion }) {
       invalidateOnRefresh: true,
       onUpdate: (self) => {
         setActive(self.progress);
-        if (!isMobile) setDepth(self.progress);
+        setDepth(self.progress);
       },
     },
   });
@@ -82,7 +92,7 @@ export function initProcess({ isMobile, reduceMotion }) {
   }
 
   setActive(0);
-  if (!isMobile) setDepth(0);
+  setDepth(0);
 
   return () => {
     gsap.set(cards, { clearProps: 'filter,transform,opacity' });

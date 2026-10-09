@@ -3,6 +3,7 @@
    ========================================================= */
 
 .contact {
+  position: relative; /* com data-speed ela desliza por cima do Sobre */
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--gap-xl);
