@@ -64,7 +64,8 @@ export function initProcess({ isMobile, reduceMotion }) {
 
   let current = -1;
   function setActive(progress) {
-    const index = Math.min(total - 1, Math.floor(progress * total));
+    // mesmo cálculo do foco dos cards: o número mostra o card que está nítido
+    const index = Math.round(progress * (total - 1));
     if (index === current) return;
     current = index;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i <= index));
