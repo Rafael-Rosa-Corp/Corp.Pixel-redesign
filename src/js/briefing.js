@@ -35,7 +35,7 @@ export function initBriefing() {
     const { tipo, identidade, prazo, isOther } = answers();
     other.hidden = !isOther;
 
-    const message = `Oi, Corporação Pixel! ${capitalize(tipo || BLANK)}, ${identidade || BLANK} e queria o site ${prazo || BLANK}.`;
+    const message = `Oi, Corporação Pixel! ${capitalize(tipo || BLANK)}, ${identidade || BLANK} e ${prazo || BLANK}.`;
     const complete = Boolean(tipo && identidade && prazo);
 
     output.textContent = message;
