@@ -10,6 +10,7 @@
 // - Carregam só quando chegam perto da tela (não pesam no início)
 // - Tocam sozinhos, sem som e em loop, e pausam quando saem da tela
 // - Movimento reduzido: não tocam sozinhos; aparecem os controles
+// - Autoplay bloqueado pelo aparelho: aparecem os controles
 // =========================================================
 
 export function initLab({ isMobile, reduceMotion }) {
@@ -42,7 +43,9 @@ export function initLab({ isMobile, reduceMotion }) {
     entries.forEach(({ target: video, isIntersecting }) => {
       if (isIntersecting) {
         load(video);
-        video.play().catch(() => {});
+        // Se o aparelho bloquear o autoplay (ex.: iPhone em Modo de Pouca Energia),
+        // mostra os controles para a pessoa tocar no play
+        video.play().catch(() => { video.controls = true; });
       } else {
         video.pause();
       }

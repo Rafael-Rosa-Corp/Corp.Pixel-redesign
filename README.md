@@ -72,7 +72,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
       Ao voltar a ter 2 cases, tire a classe `works__grid--single` do grid.
 - [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
 - [ ] Número do WhatsApp e Instagram
-- [ ] Vídeos do Lab (1 de 3 pronto: Hanami). Padrão de cada vídeo em `public/videos/lab/`:
+- [x] Vídeos do Lab (Hanami, Pringles, Novo Mundo). Padrão de cada vídeo em `public/videos/lab/`:
       `nome-1280.mp4`, `nome-1280.webm` (desktop), `nome-720.mp4`, `nome-720.webm` (celular)
       e `nome-poster.webp`; proporção 1280×592; no HTML basta `data-video="/videos/lab/nome"`
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
