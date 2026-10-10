@@ -58,7 +58,7 @@ export function initHero({ isMobile, reduceMotion }) {
     const ox = Math.round((width - cell * LOGO.cols) / 2);
     const oy = Math.round(headerH + (available - cell * LOGO.rows) / 2);
 
-    // Espalhamento: os pixels começam espalhados pela tela toda (borda a borda)
+   
     const spreadX = width * 1.1;
     const spreadY = height;
 
