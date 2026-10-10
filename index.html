@@ -116,6 +116,8 @@
               <h3 class="lab__title">Lab</h3>
               <span class="lab__subtitle">Estudos e experimentos de interação</span>
             </header>
+            <!-- Os cards alternam de lado sozinhos no desktop (1º à esquerda, 2º à direita...).
+                 Para adicionar um estudo, copie um <li> inteiro e troque número, textos e vídeo. -->
             <ul class="lab__list">
               <li class="lab__item">
                 <div class="lab__media lab__media--video">
@@ -123,8 +125,14 @@
                     poster="/videos/lab/hanami-poster.webp"
                     data-video="/videos/lab/hanami"
                     aria-label="Vídeo do estudo Hanami: site de um restaurante japonês com tela de abertura, ilustração animada e rolagem pelas seções"></video>
+                  <img class="lab__poster" src="/videos/lab/hanami-poster.webp" alt="" width="1280" height="592" loading="lazy">
                 </div>
-                <span class="lab__name">Hanami · abertura e ilustração animada · GSAP + JS</span>
+                <div class="lab__info">
+                  <span class="lab__num">01</span>
+                  <h4 class="lab__name">Hanami</h4>
+                  <p class="lab__desc">A ilustração se monta em camadas e ganha movimento antes do conteúdo entrar.</p>
+                  <span class="lab__tools">GSAP + JS</span>
+                </div>
               </li>
               <li class="lab__item">
                 <div class="lab__media lab__media--video">
@@ -132,8 +140,14 @@
                     poster="/videos/lab/pringles-poster.webp"
                     data-video="/videos/lab/pringles"
                     aria-label="Vídeo do estudo Pringles: página de produto em que cada sabor troca a cor de fundo e a embalagem com transição animada"></video>
+                  <img class="lab__poster" src="/videos/lab/pringles-poster.webp" alt="" width="1280" height="592" loading="lazy">
                 </div>
-                <span class="lab__name">Pringles · transição entre sabores · GSAP + JS</span>
+                <div class="lab__info">
+                  <span class="lab__num">02</span>
+                  <h4 class="lab__name">Pringles</h4>
+                  <p class="lab__desc">Cada sabor troca a cena inteira: cor, embalagem e texto mudam numa só transição.</p>
+                  <span class="lab__tools">GSAP + JS</span>
+                </div>
               </li>
               <li class="lab__item">
                 <div class="lab__media lab__media--video">
@@ -141,8 +155,14 @@
                     poster="/videos/lab/novo-mundo-poster.webp"
                     data-video="/videos/lab/novo-mundo"
                     aria-label="Vídeo do estudo Novo Mundo: site de turismo com galeria de destinos e um mapa-múndi interativo para escolher o destino"></video>
+                  <img class="lab__poster" src="/videos/lab/novo-mundo-poster.webp" alt="" width="1280" height="592" loading="lazy">
                 </div>
-                <span class="lab__name">Novo Mundo · mapa interativo · GSAP + JS</span>
+                <div class="lab__info">
+                  <span class="lab__num">03</span>
+                  <h4 class="lab__name">Novo Mundo</h4>
+                  <p class="lab__desc">Um mapa-múndi clicável: cada ponto leva a um destino.</p>
+                  <span class="lab__tools">GSAP + JS</span>
+                </div>
               </li>
             </ul>
           </div>

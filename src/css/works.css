@@ -135,16 +135,17 @@
   color: var(--c-muted);
 }
 
+/* Base = celular: um card embaixo do outro, texto embaixo do vídeo */
 .lab__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-  gap: var(--gap-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xl);
 }
 
 .lab__item {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-s);
+  gap: var(--gap-m);
 }
 
 /* Proporção padrão dos vídeos do Lab: 1280×592 (tela gravada sem a barra do navegador).
@@ -159,6 +160,7 @@
 }
 
 .lab__media--video {
+  position: relative;
   display: block;
   overflow: hidden;
   background: var(--c-surface);
@@ -171,6 +173,112 @@
   object-fit: cover;
 }
 
-.lab__name {
+/* Capa por cima do vídeo: aparece quando o vídeo está parado (só com JS) */
+.lab__poster {
+  display: none;
+}
+
+.lab.is-interactive .lab__poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.lab.is-interactive .lab__item.is-playing .lab__poster,
+.lab.is-interactive .lab__item.is-blocked .lab__poster {
+  opacity: 0;
+}
+
+/* --- Texto do estudo --- */
+.lab__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-s);
+}
+
+.lab__num {
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
   font-size: var(--fs-label);
+  color: var(--c-red-light);
+  transition: color 0.4s ease;
+}
+
+/* Com JS: o número acende só no estudo ativo */
+.lab.is-interactive .lab__num {
+  color: var(--c-muted);
+}
+
+.lab.is-interactive .lab__item.is-active .lab__num {
+  color: var(--c-red-light);
+}
+
+.lab__name {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.lab__desc {
+  max-width: 34ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+.lab__tools {
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+/* --- Celular: o estudo ativo fica em foco, os outros apagam --- */
+@media (max-width: 767px) {
+  .lab.is-interactive .lab__item {
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  }
+
+  .lab.is-interactive .lab__list.has-focus .lab__item {
+    opacity: 0.35;
+    transform: scale(0.94);
+  }
+
+  .lab.is-interactive .lab__list.has-focus .lab__item.is-active {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Desktop / tablet (768px+): zigue-zague ---
+   Vídeo grande de um lado, texto do outro. Os pares (2º, 4º...) invertem. */
+@media (min-width: 768px) {
+  .lab__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-areas: "media info";
+    align-items: center;
+    gap: var(--gap-l);
+  }
+
+  .lab__item:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    grid-template-areas: "info media";
+  }
+
+  .lab__media {
+    grid-area: media;
+  }
+
+  .lab__info {
+    grid-area: info;
+  }
 }

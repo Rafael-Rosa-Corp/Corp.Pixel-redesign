@@ -75,4 +75,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [x] Vídeos do Lab (Hanami, Pringles, Novo Mundo). Padrão de cada vídeo em `public/videos/lab/`:
       `nome-1280.mp4`, `nome-1280.webm` (desktop), `nome-720.mp4`, `nome-720.webm` (celular)
       e `nome-poster.webp`; proporção 1280×592; no HTML basta `data-video="/videos/lab/nome"`
+      e a mesma capa no `<img class="lab__poster">`. Só o estudo ativo toca (`src/js/lab.js`).
+- [ ] Revisar as descrições curtas dos estudos do Lab (`.lab__desc` no index.html)
+- [ ] Case do Raíz em página própria (`/trabalhos/raiz/`): aguardando prints, textos e logo
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
