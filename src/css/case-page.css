@@ -1,0 +1,7 @@
+/* Arquivo de entrada das páginas de case: só o que elas usam */
+@import './tokens.css';
+@import './base.css';
+@import './header.css';
+@import './menu.css';
+@import './case.css';
+@import './footer.css';

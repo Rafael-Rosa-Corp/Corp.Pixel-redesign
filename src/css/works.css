@@ -75,19 +75,6 @@
   object-fit: cover;
 }
 
-/* Canvas do efeito pixelado (criado pelo JS por cima da imagem) */
-.pixel-reveal__canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  image-rendering: pixelated;
-}
-
-.pixel-reveal__canvas.is-hidden {
-  visibility: hidden;
-}
-
 .work-card__info {
   display: flex;
   flex-wrap: wrap;

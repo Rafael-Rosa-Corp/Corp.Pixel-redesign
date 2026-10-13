@@ -96,3 +96,17 @@ button {
   font-size: var(--fs-label);
   color: var(--c-muted);
 }
+
+/* Canvas do efeito pixelado (criado pelo pixel-reveal.js por cima da imagem).
+   Usado nos cards da home e nas telas dos cases. */
+.pixel-reveal__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.pixel-reveal__canvas.is-hidden {
+  visibility: hidden;
+}

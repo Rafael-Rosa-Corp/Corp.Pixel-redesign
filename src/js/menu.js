@@ -57,12 +57,14 @@ export function initMenu() {
     if (event.key === 'Escape') close();
   });
 
-  // Links do menu: fecha e depois rola até a seção
+  // Links do menu: fecha e depois rola até a seção.
+  // Link para outra página (ex.: "/#trabalhos" dentro de um case): só fecha e segue.
   menu.querySelectorAll('[data-menu-link]').forEach((link) => {
     link.addEventListener('click', (event) => {
-      event.preventDefault();
-      close({ returnFocus: false });
       const hash = link.getAttribute('href');
+      close({ returnFocus: false });
+      if (!hash.startsWith('#')) return;
+      event.preventDefault();
       requestAnimationFrame(() => scrollToHash(hash));
     });
   });

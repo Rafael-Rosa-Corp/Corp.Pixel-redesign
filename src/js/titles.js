@@ -9,6 +9,8 @@
 // Para usar em outro título: coloque data-title-reveal no HTML.
 // Para mudar quando um título específico começa/termina, use também
 // data-title-start="top 90%" e/ou data-title-end="top 50%" nele.
+// Título do topo da página (já visível ao abrir): data-title-reveal="load"
+// acende sozinho, sem depender da rolagem.
 // =========================================================
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
@@ -22,6 +24,13 @@ const TITLE = {
   scrub: 0.6,       // atraso para acompanhar a rolagem (segundos)
 };
 
+// Versão "load" (topo da página)
+const LOAD = {
+  delay: 0.3,    // espera antes de começar (segundos)
+  duration: 0.9, // tempo de cada letra
+  each: 0.1,     // intervalo entre as letras
+};
+
 export function initTitles({ reduceMotion }) {
   if (reduceMotion) return; // títulos ficam normais
 
@@ -33,6 +42,18 @@ export function initTitles({ reduceMotion }) {
       onSplit: (self) => {
         // estado inicial primeiro (garante que TODAS as letras comecem apagadas)
         gsap.set(self.chars, { opacity: TITLE.ghost, yPercent: TITLE.rise });
+
+        if (title.dataset.titleReveal === 'load') {
+          return gsap.to(self.chars, {
+            opacity: 1,
+            yPercent: 0,
+            ease: 'power2.out',
+            delay: LOAD.delay,
+            duration: LOAD.duration,
+            stagger: { each: LOAD.each, from: 'random' },
+          });
+        }
+
         return gsap.to(self.chars, {
           opacity: 1,
           yPercent: 0,

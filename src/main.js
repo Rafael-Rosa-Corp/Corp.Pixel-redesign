@@ -7,7 +7,8 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { SplitText } from 'gsap/SplitText';
 
 import { initMenu } from './js/menu.js';
-import { initAnchors } from './js/scroll.js';
+import { initAnchors, scrollToHash } from './js/scroll.js';
+import { initSmoother } from './js/smooth.js';
 import { initBriefing } from './js/briefing.js';
 import { initHero } from './js/hero.js';
 import { initManifesto } from './js/manifesto.js';
@@ -20,12 +21,6 @@ import { initTitles } from './js/titles.js';
 import { initSocialIcons } from './js/social-icons.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
-
-// Ajuste do scroll no desktop (ScrollSmoother)
-const SCROLL = {
-  smooth: 1.1, // segundos para "alcançar" a rolagem: maior = mais suave/arrastado
-  speed: 0.8,  // velocidade geral da rolagem: 1 = normal, menor = menos sensível
-};
 
 // Evita recálculos quando a barra de endereço do celular aparece/some
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -50,16 +45,8 @@ mm.add(
   (context) => {
     const conditions = context.conditions;
 
-    // Scroll suave só no desktop com mouse; no celular, scroll nativo
-    if (conditions.isDesktop && conditions.finePointer && !conditions.reduceMotion) {
-      ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: SCROLL.smooth,
-        speed: SCROLL.speed,
-        effects: false,
-      });
-    }
+    // Scroll suave só no desktop com mouse (ajustes em src/js/smooth.js)
+    initSmoother(conditions);
 
     // A ordem importa: seções de cima primeiro (por causa dos pins)
     const cleanups = [
@@ -77,5 +64,9 @@ mm.add(
   }
 );
 
-// Recalcula tudo quando as fontes terminam de carregar
-document.fonts.ready.then(() => ScrollTrigger.refresh());
+// Recalcula tudo quando as fontes terminam de carregar.
+// Se a página abriu com âncora (ex.: /#contato vindo do case), vai até ela.
+document.fonts.ready.then(() => {
+  ScrollTrigger.refresh();
+  if (window.location.hash) requestAnimationFrame(() => scrollToHash(window.location.hash, { instant: true }));
+});

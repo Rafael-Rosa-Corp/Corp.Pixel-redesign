@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raíz — Case · Corporação Pixel</title>
+  <meta name="description" content="Raíz: app para a comunidade do morango de Bom Repouso, com vagas de diária, preço do dia do Ceasinha e lojas da região. Ideia, design e desenvolvimento da Corporação Pixel.">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Cantarell:wght@400;700&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/css/case-page.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- === HEADER (fixo, fora do smooth-wrapper) === -->
+  <header class="site-header">
+    <a class="site-header__brand" href="/">Corporação Pixel</a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="menu">[ MENU ]</button>
+  </header>
+
+  <!-- === MENU (tela cheia) — links levam de volta para a home === -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" inert>
+    <div class="menu__top">
+      <span class="menu__tagline">Nada é por acaso.</span>
+      <a class="menu__brand" href="/" data-menu-link aria-label="Corporação Pixel, voltar ao início">
+        <canvas class="menu__logo" data-logo="menu" aria-hidden="true"></canvas>
+        <span class="menu__brand-name">Corporação Pixel</span>
+      </a>
+      <button class="menu__close" type="button">[ FECHAR ]</button>
+    </div>
+
+    <nav class="menu__nav" aria-label="Menu principal">
+      <ol class="menu__list">
+        <li class="menu__row menu__row--1">
+          <a class="menu__link" href="/" data-menu-link>Início</a>
+        </li>
+        <li class="menu__row menu__row--2">
+          <a class="menu__link is-current" href="/#trabalhos" data-menu-link aria-current="true">Trabalhos</a>
+          <span class="menu__marker" aria-hidden="true"></span>
+        </li>
+        <li class="menu__row menu__row--3">
+          <a class="menu__link" href="/#processo" data-menu-link>Processo</a>
+        </li>
+        <li class="menu__row menu__row--4">
+          <a class="menu__link" href="/#sobre" data-menu-link>Sobre</a>
+        </li>
+      </ol>
+      <div class="menu__secondary">
+        <a class="menu__secondary-link" href="/#contato" data-menu-link>Contato</a>
+        <a class="menu__secondary-link" href="#" data-whatsapp target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a class="menu__secondary-link" href="#" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="conteudo" class="case">
+
+        <!-- === TOPO DO CASE === -->
+        <section class="case-hero" id="topo" aria-labelledby="case-title">
+          <a class="case-hero__back" href="/#trabalhos">← Trabalhos</a>
+          <span class="case-hero__label">// case · produto próprio</span>
+          <h1 class="case-hero__title" id="case-title" data-title-reveal="load">Raíz</h1>
+          <p class="case-hero__lead">Um app para quem vive do morango em Bom Repouso: diárias, preço do dia e lojas da região, num lugar só.</p>
+
+          <dl class="case-hero__meta">
+            <div class="case-hero__meta-item">
+              <dt class="case-hero__meta-label">Ano</dt>
+              <dd class="case-hero__meta-value">2026</dd>
+            </div>
+            <div class="case-hero__meta-item">
+              <dt class="case-hero__meta-label">O que fizemos</dt>
+              <dd class="case-hero__meta-value">Ideia, design e desenvolvimento</dd>
+            </div>
+            <div class="case-hero__meta-item">
+              <dt class="case-hero__meta-label">Formato</dt>
+              <dd class="case-hero__meta-value">App pelo navegador (PWA)</dd>
+            </div>
+            <div class="case-hero__meta-item">
+              <dt class="case-hero__meta-label">No ar</dt>
+              <dd class="case-hero__meta-value"><a class="case-hero__meta-link" href="https://www.raizmorango.com.br" target="_blank" rel="noopener">raizmorango.com.br ↗</a></dd>
+            </div>
+          </dl>
+
+          <!-- Palco com as cores do Raíz. Quando chegar o vídeo, ele entra no lugar da tela. -->
+          <div class="case-hero__stage">
+            <img class="case-hero__logo" src="/images/raiz/logo-raiz.webp" alt="" width="358" height="498">
+            <figure class="case-phone case-phone--hero" data-pixel-reveal>
+              <img class="case-phone__screen" src="/images/raiz/tela-inicio.webp" alt="Tela inicial do Raíz: a pergunta “O que você faz?” com as opções produtor ou meeiro, diarista e comprador, e o atalho para ver o preço do morango" width="739" height="1314">
+            </figure>
+          </div>
+        </section>
+
+        <!-- === O PROBLEMA === -->
+        <section class="case-section case-context" aria-labelledby="case-context-title">
+          <span class="case-section__label">// o problema</span>
+          <h2 class="case-section__title" id="case-context-title" data-title-reveal>Diária se arranjava por indicação.</h2>
+          <div class="case-section__body">
+            <p class="case-section__text">Em Bom Repouso, quem precisava de gente para a lavoura chamava quem já conhecia, ou quem alguém indicava. Quando acabava a diária com um produtor, muitas vezes o diarista não conhecia mais ninguém para quem trabalhar.</p>
+            <p class="case-section__text">O Raíz junta os dois lados num lugar só: o produtor publica a vaga e o diarista da região encontra, sem depender de conhecer alguém.</p>
+          </div>
+        </section>
+
+        <!-- === O QUE O APP FAZ === -->
+        <section class="case-section case-features" aria-labelledby="case-features-title">
+          <span class="case-section__label">// o que o app faz</span>
+          <h2 class="case-section__title" id="case-features-title" data-title-reveal>Cada um vê o que precisa.</h2>
+
+          <!-- No desktop os itens alternam de lado sozinhos (1º texto à esquerda, 2º à direita...) -->
+          <ol class="case-features__list">
+            <li class="case-feature">
+              <div class="case-feature__info">
+                <span class="case-feature__num">01</span>
+                <h3 class="case-feature__name">Vagas de diária</h3>
+                <p class="case-feature__text">O produtor publica a diária com local, data, horário e valor. O diarista vê as vagas da região, filtra por dia e avisa que tem interesse. Quem publicou escolhe quem chamar e segue a conversa pelo WhatsApp.</p>
+              </div>
+              <div class="case-feature__media case-feature__media--double">
+                <figure class="case-phone" data-pixel-reveal>
+                  <img class="case-phone__screen" src="/images/raiz/tela-produtor.webp" alt="Tela do produtor: botão Criar diária e a lista Suas vagas, com uma vaga em Santa Rita, 0 de 2 confirmados" width="739" height="1314" loading="lazy">
+                </figure>
+                <figure class="case-phone" data-pixel-reveal>
+                  <img class="case-phone__screen" src="/images/raiz/tela-vagas.webp" alt="Tela do diarista: Vagas disponíveis, com local, data, horário, valor da diária e o botão Tenho interesse" width="739" height="1314" loading="lazy">
+                </figure>
+              </div>
+            </li>
+
+            <li class="case-feature">
+              <div class="case-feature__info">
+                <span class="case-feature__num">02</span>
+                <h3 class="case-feature__name">Preço do morango</h3>
+                <p class="case-feature__text">A tabela do dia do Ceasinha de Bom Repouso, separada por tipo de morango, com a média do dia e a média do mês.</p>
+              </div>
+              <div class="case-feature__media">
+                <figure class="case-phone" data-pixel-reveal>
+                  <img class="case-phone__screen" src="/images/raiz/tela-preco.webp" alt="Tela Preço do morango: tabela do Ceasinha de Bom Repouso com os preços do morango velho, bom e safra nova top, e a média do dia" width="739" height="1314" loading="lazy">
+                </figure>
+              </div>
+            </li>
+
+            <li class="case-feature">
+              <div class="case-feature__info">
+                <span class="case-feature__num">03</span>
+                <h3 class="case-feature__name">Lojas da região</h3>
+                <p class="case-feature__text">Lojas parceiras de insumos e mudas, separadas por categoria, com endereço, WhatsApp e Instagram a um toque.</p>
+              </div>
+              <div class="case-feature__media">
+                <figure class="case-phone" data-pixel-reveal>
+                  <img class="case-phone__screen" src="/images/raiz/tela-lojas.webp" alt="Tela Lojas da região: filtro por categoria e o card da loja Ponte Alta, de mudas, com endereço, banner e botões de WhatsApp e Instagram" width="739" height="1314" loading="lazy">
+                </figure>
+              </div>
+            </li>
+          </ol>
+
+          <div class="case-extras">
+            <span class="case-extras__label">E ainda</span>
+            <ul class="case-extras__list">
+              <li class="case-extras__item"><strong class="case-extras__name">Clima</strong> previsão de 4 dias com alerta de geada e de chuva forte.</li>
+              <li class="case-extras__item"><strong class="case-extras__name">Perfil</strong> foto, cidade e as recomendações que o diarista recebeu.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- === A RESPOSTA AO PROBLEMA === -->
+        <section class="case-quote" aria-label="Recomendações">
+          <p class="case-quote__text" data-title-reveal>A indicação continua existindo. Só que agora fica registrada.</p>
+          <p class="case-quote__note">No fim da diária, o produtor pode recomendar quem trabalhou com ele. A recomendação aparece no perfil do diarista, e os mais recomendados aparecem primeiro para o próximo produtor.</p>
+        </section>
+
+        <!-- === DECISÕES === -->
+        <section class="case-section case-decisions" aria-labelledby="case-decisions-title">
+          <span class="case-section__label">// nada é por acaso</span>
+          <h2 class="case-section__title" id="case-decisions-title" data-title-reveal>Decisões</h2>
+          <ol class="case-decisions__list">
+            <li class="case-decision">
+              <span class="case-decision__num">01</span>
+              <h3 class="case-decision__title">Entrar com telefone e PIN</h3>
+              <p class="case-decision__text">Boa parte de quem usa é gente mais velha. Nada de e-mail ou senha difícil: o próprio número de telefone e um PIN.</p>
+            </li>
+            <li class="case-decision">
+              <span class="case-decision__num">02</span>
+              <h3 class="case-decision__title">A primeira pergunta é “O que você faz?”</h3>
+              <p class="case-decision__text">Produtor, diarista ou comprador. A partir da resposta, o app mostra só o que serve para cada um.</p>
+            </li>
+            <li class="case-decision">
+              <span class="case-decision__num">03</span>
+              <h3 class="case-decision__title">Abre pelo link, sem loja de aplicativos</h3>
+              <p class="case-decision__text">O Raíz chega pelos grupos de WhatsApp: a pessoa toca no link e já está dentro. Se quiser, instala na tela inicial do celular.</p>
+            </li>
+            <li class="case-decision">
+              <span class="case-decision__num">04</span>
+              <h3 class="case-decision__title">Cores da lavoura</h3>
+              <p class="case-decision__text">Vermelho do morango, verde da folha e um creme no fundo. Nenhum preto ou branco puro.</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- === FICHA === -->
+        <section class="case-section case-facts" aria-label="Ficha do projeto">
+          <div class="case-facts__group">
+            <h2 class="case-facts__title">Feito com</h2>
+            <ul class="case-facts__list">
+              <li class="case-facts__item">React</li>
+              <li class="case-facts__item">Supabase</li>
+              <li class="case-facts__item">Vercel</li>
+              <li class="case-facts__item">Open-Meteo (clima)</li>
+            </ul>
+          </div>
+          <div class="case-facts__group">
+            <h2 class="case-facts__title">Onde está</h2>
+            <p class="case-facts__text">Lançado em 8 de outubro de 2026 nos grupos de WhatsApp e Facebook da região. Atende Bom Repouso, Cambuí, Senador Amaral e Estiva.</p>
+          </div>
+        </section>
+
+        <!-- === PRÓXIMOS PASSOS === -->
+        <section class="case-next" aria-label="Continuar">
+          <a class="case-next__visit" href="https://www.raizmorango.com.br" target="_blank" rel="noopener">Conhecer o Raíz ↗</a>
+          <div class="case-next__links">
+            <a class="case-next__link" href="/#trabalhos">← Voltar para Trabalhos</a>
+            <a class="case-next__link" href="/#contato">Tem um projeto? Comece por aqui →</a>
+          </div>
+        </section>
+
+        <!-- === FOOTER === -->
+        <footer class="site-footer">
+          <span class="site-footer__brand">Corporação Pixel</span>
+          <span class="site-footer__copy">© 2026 Corporação Pixel</span>
+          <div class="site-footer__links">
+            <a class="site-footer__link" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" data-icon="instagram"></a>
+            <a class="site-footer__link" href="https://github.com/Rafael-Rosa-Corp" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-icon="github"></a>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/src/case.js"></script>
+</body>
+</html>

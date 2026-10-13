@@ -15,9 +15,12 @@ No Vercel: importe o repositório. Ele reconhece o Vite sozinho (build `npm run 
 ## Estrutura
 
 ```
-index.html              → todo o conteúdo (textos, seções, links)
-public/images/          → imagens (logo, cases)
-src/main.js             → liga tudo e separa desktop / celular / movimento reduzido
+index.html              → home: todo o conteúdo (textos, seções, links)
+trabalhos/raiz/         → página do case Raíz (index.html)
+vite.config.js          → lista das páginas (cada case novo entra aqui)
+public/images/          → imagens (logo, cases; telas do Raíz em images/raiz/)
+src/main.js             → home: liga tudo e separa desktop / celular / movimento reduzido
+src/case.js             → páginas de case: menu, scroll suave, títulos e pixelado
 src/js/                 → um arquivo por parte do site
   config.js             → NÚMERO DO WHATSAPP
   menu.js               → menu em tela cheia
@@ -29,10 +32,13 @@ src/js/                 → um arquivo por parte do site
   briefing.js           → mensagem do WhatsApp montada pelas respostas
   lab.js                → vídeos do Lab (só o estudo ativo toca)
   titles.js             → títulos com letras que acendem fora de ordem
+  smooth.js             → configuração do scroll suave (vale para todas as páginas)
   logo.js / scroll.js   → utilidades
 src/data/logo.json      → o polvo em pixels (usado pelo hero e pelo menu)
 src/css/                → um arquivo por seção
   tokens.css            → CORES, FONTES E ESPAÇAMENTOS (comece por aqui)
+  main.css              → entrada da home
+  case-page.css / case.css → entrada e estilos das páginas de case
 ```
 
 ## Regras do código
@@ -68,6 +74,8 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - **Duração do manifesto:** `end: '+=140%'` em `src/js/manifesto.js`
 - **Profundidade do processo:** `BG_SPEED` em `src/js/process.js`
 - **Passos do pixelado:** `STEPS` em `src/js/pixel-reveal.js`
+- **Scroll suave:** `SCROLL` em `src/js/smooth.js`
+- **Cores do case:** variáveis `--case-*` no topo de `src/css/case.css`
 - **Efeito dos títulos:** `TITLE` no topo de `src/js/titles.js`; para usar em outro
   título, coloque `data-title-reveal` nele no `index.html`
 
@@ -84,5 +92,8 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
       e `nome-poster.webp`; proporção 1280×592; no HTML basta `data-video="/videos/lab/nome"`
       e a mesma capa no `<img class="lab__poster">`. Só o estudo ativo toca (`src/js/lab.js`).
 - [ ] Revisar as descrições curtas dos estudos do Lab (`.lab__desc` no index.html)
-- [ ] Case do Raíz em página própria (`/trabalhos/raiz/`): aguardando prints, textos e logo
+- [x] Case do Raíz em página própria (`/trabalhos/raiz/`)
+- [ ] Vídeo do Raíz para o celular do topo do case
+- [ ] Confirmar o motivo da decisão "Abre pelo link, sem loja de aplicativos" no case
+- [ ] Header branco some sobre áreas claras (palcos creme, card do Raíz, vídeo da Hanami)
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)

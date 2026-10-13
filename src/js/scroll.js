@@ -5,15 +5,16 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function scrollToHash(hash) {
+// instant: pula direto, sem animar (usado ao abrir a página já com âncora)
+export function scrollToHash(hash, { instant = false } = {}) {
   const target = hash && hash !== '#' ? document.querySelector(hash) : null;
   if (!target) return;
 
   const smoother = ScrollSmoother.get();
   if (smoother) {
-    smoother.scrollTo(target, true, 'top top');
+    smoother.scrollTo(target, !instant, 'top top');
   } else {
-    target.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth' });
+    target.scrollIntoView({ behavior: instant || prefersReduced() ? 'auto' : 'smooth' });
   }
 }
 

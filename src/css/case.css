@@ -1,0 +1,519 @@
+/* =========================================================
+   CASE — página de um trabalho (ex.: /trabalhos/raiz/)
+   Base = celular. Desktop/tablet (768px+) no fim de cada bloco.
+   ========================================================= */
+
+/* Cores do projeto apresentado (aqui, o Raíz).
+   Para outro case, troque estes valores e o resto acompanha. */
+.case {
+  --case-cream: #FDF6F0;   /* fundo dos palcos (cor de fundo do app) */
+  --case-ink: #1E1E1E;     /* moldura do celular (o Raíz não usa preto puro) */
+  --case-shadow: rgba(90, 30, 20, 0.4);
+}
+
+/* Rótulos "// texto" */
+.case-hero__label,
+.case-section__label,
+.case-extras__label,
+.case-facts__title {
+  display: block;
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  color: var(--c-muted);
+}
+
+/* ---------------------------------------------------------
+   TOPO
+   --------------------------------------------------------- */
+.case-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding: calc(var(--header-h) + var(--gap-m)) var(--pad-x) var(--section-y);
+}
+
+.case-hero__back {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: var(--tap);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.case-hero__back:hover {
+  color: var(--c-text);
+}
+
+.case-hero__title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(4.5rem, 2rem + 16vw, 15rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.case-hero__lead {
+  max-width: 30ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--c-text-soft);
+}
+
+.case-hero__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-m);
+  margin: var(--gap-s) 0 0;
+  padding-top: var(--gap-m);
+  border-top: 1px solid var(--c-line);
+}
+
+.case-hero__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.case-hero__meta-label {
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-muted);
+}
+
+.case-hero__meta-value {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.4;
+}
+
+.case-hero__meta-link {
+  text-underline-offset: 0.2em;
+  transition: color 0.25s ease;
+}
+
+.case-hero__meta-link:hover {
+  color: var(--c-red-light);
+}
+
+/* Palco com as cores do projeto: logo + celular */
+.case-hero__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-top: var(--gap-l);
+  padding: var(--gap-xl) var(--gap-m);
+  background: var(--case-cream);
+  overflow: hidden;
+}
+
+.case-hero__logo {
+  position: absolute;
+  left: -8%;
+  bottom: -4%;
+  width: auto;
+  height: 62%;
+}
+
+.case-phone--hero {
+  z-index: 1;
+  width: min(60vw, 17rem);
+}
+
+@media (min-width: 768px) {
+  .case-hero__meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .case-hero__stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--gap-xl) var(--gap-l);
+  }
+
+  .case-hero__logo {
+    position: static;
+    width: min(70%, 20rem);
+    height: auto;
+  }
+
+  .case-phone--hero {
+    width: clamp(14rem, 8rem + 12vw, 21rem);
+  }
+}
+
+/* ---------------------------------------------------------
+   CELULAR (moldura das telas)
+   --------------------------------------------------------- */
+.case-phone {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--case-ink);
+  border: clamp(0.375rem, 0.3rem + 0.3vw, 0.625rem) solid var(--case-ink);
+  border-radius: clamp(1.25rem, 0.9rem + 1.4vw, 2.5rem);
+  box-shadow:
+    0 2.5rem 5rem -2rem var(--case-shadow),
+    0 0.75rem 2rem -0.75rem var(--case-shadow);
+}
+
+.case-phone__screen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------
+   SEÇÕES DE TEXTO
+   --------------------------------------------------------- */
+.case-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding: var(--section-y) var(--pad-x);
+  border-top: 1px solid var(--c-line);
+}
+
+.case-section__title {
+  max-width: 18ch;
+  font-family: var(--f-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.case-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  max-width: 38rem;
+}
+
+.case-section__text {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+/* O problema: título de um lado, texto do outro (telas largas) */
+@media (min-width: 1024px) {
+  .case-context {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap-xl);
+    align-items: start;
+  }
+
+  .case-context .case-section__label {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------------------------------------------------------
+   O QUE O APP FAZ
+   --------------------------------------------------------- */
+.case-features__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xl);
+  margin-top: var(--gap-l);
+}
+
+.case-feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+}
+
+.case-feature__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.case-feature__num {
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-red-light);
+}
+
+.case-feature__name {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.case-feature__text {
+  max-width: 36ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+/* Palco creme com o(s) celular(es) */
+.case-feature__media {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-m);
+  padding: var(--gap-l) var(--gap-m);
+  background: var(--case-cream);
+}
+
+.case-feature__media .case-phone {
+  width: min(60vw, 16rem);
+}
+
+/* Dois celulares lado a lado: dividem o espaço */
+.case-feature__media--double .case-phone {
+  flex: 1 1 0;
+  width: auto;
+  max-width: 14rem;
+}
+
+@media (min-width: 768px) {
+  .case-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-areas: "info media";
+    align-items: center;
+  }
+
+  .case-feature:nth-child(even) {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    grid-template-areas: "media info";
+  }
+
+  .case-feature__info {
+    grid-area: info;
+  }
+
+  .case-feature__media {
+    grid-area: media;
+    padding: var(--gap-xl) var(--gap-l);
+  }
+
+  .case-feature__media .case-phone {
+    width: clamp(11rem, 5rem + 11vw, 17rem);
+  }
+
+  .case-feature__media--double .case-phone {
+    max-width: 15rem;
+  }
+}
+
+/* "E ainda": recursos sem tela própria */
+.case-extras {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  margin-top: var(--gap-xl);
+  padding-top: var(--gap-m);
+  border-top: 1px solid var(--c-line);
+}
+
+.case-extras__list {
+  display: grid;
+  gap: var(--gap-m) var(--gap-l);
+}
+
+.case-extras__item {
+  max-width: 36ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+.case-extras__name {
+  display: block;
+  font-family: var(--f-display);
+  font-size: var(--fs-lead);
+  font-weight: 400;
+  color: var(--c-text);
+}
+
+@media (min-width: 768px) {
+  .case-extras__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------------------------------------------------------
+   FRASE EM DESTAQUE (faixa vermelha)
+   --------------------------------------------------------- */
+.case-quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding: var(--section-y) var(--pad-x);
+  background: var(--c-red);
+}
+
+.case-quote__text {
+  max-width: 18ch;
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 1.2rem + 3.6vw, 4.5rem);
+  line-height: 1.1;
+  color: #FBEFF1;
+}
+
+.case-quote__note {
+  max-width: 40ch;
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--c-red-pale);
+}
+
+/* ---------------------------------------------------------
+   DECISÕES
+   --------------------------------------------------------- */
+.case-decisions__list {
+  display: grid;
+  margin-top: var(--gap-m);
+  border-top: 1px solid var(--c-line);
+}
+
+.case-decision {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start; /* no desktop, o vizinho mais alto não empurra o texto */
+  gap: var(--gap-s) var(--gap-m);
+  padding: var(--gap-l) 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.case-decision__num {
+  grid-row: span 2;
+  padding-top: 0.35em;
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  color: var(--c-red-light);
+}
+
+.case-decision__title {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.case-decision__text {
+  grid-column: 2;
+  max-width: 44ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+@media (min-width: 768px) {
+  .case-decisions__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap-l);
+    border-top: 0;
+  }
+
+  .case-decision {
+    border-top: 1px solid var(--c-line);
+    border-bottom: 0;
+  }
+}
+
+/* ---------------------------------------------------------
+   FICHA (tecnologia e onde está)
+   --------------------------------------------------------- */
+.case-facts {
+  display: grid;
+  gap: var(--gap-l);
+}
+
+.case-facts__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+.case-facts__title {
+  margin: 0;
+}
+
+.case-facts__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-s);
+}
+
+.case-facts__item {
+  padding: 0.45em 0.9em;
+  border: 1px solid var(--c-line-strong);
+  font-size: var(--fs-body);
+}
+
+.case-facts__text {
+  max-width: 40ch;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text-soft);
+}
+
+@media (min-width: 768px) {
+  .case-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap-xl);
+  }
+}
+
+/* ---------------------------------------------------------
+   PRÓXIMOS PASSOS
+   --------------------------------------------------------- */
+.case-next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  padding: var(--section-y) var(--pad-x);
+  border-top: 1px solid var(--c-line);
+}
+
+.case-next__visit {
+  align-self: flex-start;
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 1.2rem + 5vw, 6rem);
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.case-next__visit:hover {
+  color: var(--c-red-light);
+}
+
+.case-next__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--gap-s) var(--gap-m);
+}
+
+.case-next__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: var(--fs-body);
+  color: var(--c-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.case-next__link:hover {
+  color: var(--c-text);
+}
