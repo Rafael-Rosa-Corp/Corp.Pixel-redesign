@@ -16,6 +16,7 @@ import { initProcess } from './js/process.js';
 import { initAbout } from './js/about.js';
 import { initCtaPixels } from './js/cta-pixels.js';
 import { initLab } from './js/lab.js';
+import { initTitles } from './js/titles.js';
 import { initSocialIcons } from './js/social-icons.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
@@ -69,6 +70,7 @@ mm.add(
       initAbout(conditions),
       initCtaPixels(conditions),
       initLab(conditions),
+      initTitles(conditions), // por último: depende das travas (pins) acima
     ].filter(Boolean);
 
     return () => cleanups.forEach((cleanup) => cleanup());

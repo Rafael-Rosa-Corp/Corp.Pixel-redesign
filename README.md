@@ -27,6 +27,8 @@ src/js/                 → um arquivo por parte do site
   process.js            → processo com "câmera" horizontal
   about.js              → linhas do Sobre que acendem
   briefing.js           → mensagem do WhatsApp montada pelas respostas
+  lab.js                → vídeos do Lab (só o estudo ativo toca)
+  titles.js             → títulos com letras que acendem fora de ordem
   logo.js / scroll.js   → utilidades
 src/data/logo.json      → o polvo em pixels (usado pelo hero e pelo menu)
 src/css/                → um arquivo por seção
@@ -51,6 +53,8 @@ src/css/                → um arquivo por seção
 | Trabalhos | Nitidez ao entrar na tela + no hover     | Nitidez ao entrar na tela                |
 | Processo  | Câmera horizontal + fundo em profundidade| Horizontal, sem a camada de fundo        |
 | Sobre     | Linha ativa acende e mostra o comentário | Igual                                    |
+| Lab       | Zigue-zague, texto entra ao chegar       | Estudo ativo em foco, outros apagados    |
+| Títulos   | Letras acendem fora de ordem com a rolagem | Igual                                  |
 
 Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/trackpad.
 
@@ -63,6 +67,8 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - **Duração do manifesto:** `end: '+=140%'` em `src/js/manifesto.js`
 - **Profundidade do processo:** `BG_SPEED` em `src/js/process.js`
 - **Passos do pixelado:** `STEPS` em `src/js/pixel-reveal.js`
+- **Efeito dos títulos:** `TITLE` no topo de `src/js/titles.js`; para usar em outro
+  título, coloque `data-title-reveal` nele no `index.html`
 
 ## Pendências (textos entre colchetes no index.html)
 
