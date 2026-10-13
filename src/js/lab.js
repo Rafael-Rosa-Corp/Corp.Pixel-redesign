@@ -9,8 +9,9 @@
 //
 // - Só o estudo ATIVO toca: o que estiver mais perto do meio da tela.
 //   Os outros ficam parados na capa. Ao ficar ativo, recomeça do início.
-// - Desktop: o texto do estudo aparece (máscara, linha a linha) quando o
-//   card chega a 70% da tela, uma vez só.
+// - Desktop: número, descrição e ferramentas aparecem (máscara, linha a
+//   linha) quando o card chega a 70% da tela, uma vez só. O nome usa o
+//   efeito dos títulos (titles.js), nas duas telas.
 // - Celular: o ativo fica em foco e os outros apagam (CSS, .has-focus).
 // - Vídeos carregam só quando chegam perto da tela.
 // - Movimento reduzido: nada toca sozinho; aparecem os controles.
@@ -107,7 +108,9 @@ export function initLab({ isMobile, reduceMotion }) {
   const revealTriggers = [];
   if (!isMobile) {
     items.forEach((item) => {
-      item.split = SplitText.create([...item.info.children], {
+      // o nome do estudo fica de fora: ele usa o efeito dos títulos (titles.js)
+      const lines = [...item.info.children].filter((el) => !el.hasAttribute('data-title-reveal'));
+      item.split = SplitText.create(lines, {
         type: 'lines',
         mask: 'lines',
         autoSplit: true, // refaz as linhas se a tela mudar de largura

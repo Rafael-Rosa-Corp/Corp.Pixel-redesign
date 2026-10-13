@@ -7,6 +7,8 @@
 // o efeito volta junto.
 //
 // Para usar em outro título: coloque data-title-reveal no HTML.
+// Para mudar quando um título específico começa/termina, use também
+// data-title-start="top 90%" e/ou data-title-end="top 50%" nele.
 // =========================================================
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
@@ -38,8 +40,8 @@ export function initTitles({ reduceMotion }) {
           stagger: { each: TITLE.each, from: 'random' },
           scrollTrigger: {
             trigger: title,
-            start: TITLE.start,
-            end: TITLE.end,
+            start: title.dataset.titleStart || TITLE.start,
+            end: title.dataset.titleEnd || TITLE.end,
             scrub: TITLE.scrub,
           },
         });
