@@ -54,6 +54,7 @@ src/css/                → um arquivo por seção
 | Processo  | Câmera horizontal + fundo em profundidade| Horizontal, sem a camada de fundo        |
 | Sobre     | Linha ativa acende e mostra o comentário | Igual                                    |
 | Lab       | Zigue-zague, texto entra ao chegar       | Estudo ativo em foco, outros apagados    |
+|           | Nome do estudo com o efeito dos títulos  | Igual                                    |
 | Títulos   | Letras acendem fora de ordem com a rolagem | Igual                                  |
 
 Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/trackpad.
