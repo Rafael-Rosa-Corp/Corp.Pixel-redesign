@@ -1,7 +1,7 @@
 // CONTADOR (Umami)
 
 // ID do site no painel do Umami (cloud.umami.is); vazio = contador desligado
-const UMAMI_ID = '';
+const UMAMI_ID = '27abb239-2947-4e9d-adbd-24cbbcddf5df';
 
 // Só conta o site publicado (testes no PC não entram nos números)
 export function initAnalytics() {
