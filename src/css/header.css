@@ -11,6 +11,7 @@
   height: var(--header-h);
   padding-inline: var(--pad-x);
   color: var(--c-white);
+  mix-blend-mode: difference; /* inverte sobre fundo claro: continua legível */
 }
 
 .site-header__brand {
