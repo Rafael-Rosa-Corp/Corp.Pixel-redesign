@@ -17,10 +17,13 @@ No Vercel: importe o repositório. Ele reconhece o Vite sozinho (build `npm run 
 ```
 index.html              → home: todo o conteúdo (textos, seções, links)
 trabalhos/raiz/         → página do case Raíz (index.html)
+404.html                → página não encontrada (quebra-cabeça do polvo)
+public/.htaccess        → faz a 404 funcionar em hospedagem Apache (Hostinger)
 vite.config.js          → lista das páginas (cada case novo entra aqui)
 public/images/          → imagens (logo, cases; telas do Raíz em images/raiz/)
 src/main.js             → home: liga tudo e separa desktop / celular / movimento reduzido
 src/case.js             → páginas de case: menu, scroll suave, títulos e pixelado
+src/notfound.js         → página 404 (quebra-cabeça em src/js/puzzle.js)
 src/js/                 → um arquivo por parte do site
   config.js             → NÚMERO DO WHATSAPP
   menu.js               → menu em tela cheia
@@ -75,6 +78,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - **Profundidade do processo:** `BG_SPEED` em `src/js/process.js`
 - **Passos do pixelado:** `STEPS` em `src/js/pixel-reveal.js`
 - **Scroll suave:** `SCROLL` em `src/js/smooth.js`
+- **Peças do quebra-cabeça da 404:** `PUZZLE` em `src/js/puzzle.js` (+ `.puzzle` no `notfound.css`)
 - **Cores do case:** variáveis `--case-*` no topo de `src/css/case.css`
 - **Efeito dos títulos:** `TITLE` no topo de `src/js/titles.js`; para usar em outro
   título, coloque `data-title-reveal` nele no `index.html`
@@ -86,7 +90,7 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [ ] Case da arquiteta: fora por enquanto (aguardando resposta sobre o site novo).
       Ao voltar a ter 2 cases, tire a classe `works__grid--single` do grid.
 - [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
-- [ ] Número do WhatsApp e Instagram
+- [x] Número do WhatsApp e Instagram
 - [x] Vídeos do Lab (Hanami, Pringles, Novo Mundo). Padrão de cada vídeo em `public/videos/lab/`:
       `nome-1280.mp4`, `nome-1280.webm` (desktop), `nome-720.mp4`, `nome-720.webm` (celular)
       e `nome-poster.webp`; proporção 1280×592; no HTML basta `data-video="/videos/lab/nome"`
@@ -95,5 +99,6 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [x] Case do Raíz em página própria (`/trabalhos/raiz/`)
 - [ ] Vídeo do Raíz para o celular do topo do case
 - [ ] Confirmar o motivo da decisão "Abre pelo link, sem loja de aplicativos" no case
+- [x] Página 404 (testar em `/404.html` no `npx vite`)
 - [ ] Header branco some sobre áreas claras (palcos creme, card do Raíz, vídeo da Hanami)
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada · Corporação Pixel</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Cantarell:wght@400;700&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/css/notfound-page.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- === HEADER (fixo, fora do smooth-wrapper) === -->
+  <header class="site-header">
+    <a class="site-header__brand" href="/">Corporação Pixel</a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="menu">[ MENU ]</button>
+  </header>
+
+  <!-- === MENU (tela cheia) — links levam de volta para a home === -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" inert>
+    <div class="menu__top">
+      <span class="menu__tagline">Nada é por acaso.</span>
+      <a class="menu__brand" href="/" data-menu-link aria-label="Corporação Pixel, voltar ao início">
+        <canvas class="menu__logo" data-logo="menu" aria-hidden="true"></canvas>
+        <span class="menu__brand-name">Corporação Pixel</span>
+      </a>
+      <button class="menu__close" type="button">[ FECHAR ]</button>
+    </div>
+
+    <nav class="menu__nav" aria-label="Menu principal">
+      <ol class="menu__list">
+        <li class="menu__row menu__row--1">
+          <a class="menu__link" href="/" data-menu-link>Início</a>
+        </li>
+        <li class="menu__row menu__row--2">
+          <a class="menu__link" href="/#trabalhos" data-menu-link>Trabalhos</a>
+        </li>
+        <li class="menu__row menu__row--3">
+          <a class="menu__link" href="/#processo" data-menu-link>Processo</a>
+        </li>
+        <li class="menu__row menu__row--4">
+          <a class="menu__link" href="/#sobre" data-menu-link>Sobre</a>
+        </li>
+      </ol>
+      <div class="menu__secondary">
+        <a class="menu__secondary-link" href="/#contato" data-menu-link>Contato</a>
+        <a class="menu__secondary-link" href="#" data-whatsapp target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a class="menu__secondary-link" href="https://www.instagram.com/pixelcorp.tech/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="conteudo" class="notfound">
+    <span class="notfound__label">// erro 404</span>
+    <h1 class="notfound__title">Página não encontrada.</h1>
+    <p class="notfound__hint" data-puzzle-hint>Troque as peças de lugar e monte o polvo.</p>
+
+    <!-- O quebra-cabeça é montado pelo JS (src/js/puzzle.js) -->
+    <div class="puzzle" data-puzzle aria-label="Quebra-cabeça do polvo da Corporação Pixel" role="group"></div>
+
+    <div class="notfound__end" data-puzzle-end hidden>
+      <p class="notfound__phrase" data-puzzle-phrase>Isso, sim, foi por acaso.</p>
+      <span class="notfound__moves" data-puzzle-moves></span>
+    </div>
+
+    <div class="notfound__links">
+      <a class="notfound__home" href="/" data-puzzle-home>Voltar para o início →</a>
+      <a class="notfound__skip" href="/" data-puzzle-skip>Pular e voltar para o início</a>
+    </div>
+  </main>
+
+  <script type="module" src="/src/notfound.js"></script>
+</body>
+</html>

@@ -14,6 +14,7 @@ export default defineConfig({
       input: {
         home: resolve(root, 'index.html'),
         raiz: resolve(root, 'trabalhos/raiz/index.html'),
+        notfound: resolve(root, '404.html'),
       },
     },
   },

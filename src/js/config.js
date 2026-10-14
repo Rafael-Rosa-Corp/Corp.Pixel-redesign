@@ -3,7 +3,7 @@
 // =========================================================
 
 // Número do WhatsApp com DDI + DDD, só números (ex.: 5535999998888)
-export const WHATSAPP_NUMBER = '55XXXXXXXXXXX';
+export const WHATSAPP_NUMBER = '5535991409150';
 
 // Monta o link do WhatsApp com uma mensagem opcional
 export function whatsappLink(message = '') {
