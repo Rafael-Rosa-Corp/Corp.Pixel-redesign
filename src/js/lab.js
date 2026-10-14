@@ -20,7 +20,7 @@
 // =========================================================
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
+import { splitText } from './split.js';
 
 // Faixa da tela em que o Lab fica "ligado" (a lista entra em 70% e sai em 30%)
 const ZONE = { start: 'top 70%', end: 'bottom 30%' };
@@ -110,7 +110,7 @@ export function initLab({ isMobile, reduceMotion }) {
     items.forEach((item) => {
       // o nome do estudo fica de fora: ele usa o efeito dos títulos (titles.js)
       const lines = [...item.info.children].filter((el) => !el.hasAttribute('data-title-reveal'));
-      item.split = SplitText.create(lines, {
+      item.split = splitText(lines, {
         type: 'lines',
         mask: 'lines',
         autoSplit: true, // refaz as linhas se a tela mudar de largura

@@ -6,7 +6,7 @@
 // Quando o polvo fica montado, aparece "Isso, sim, foi por acaso."
 // =========================================================
 import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
+import { splitText } from './split.js';
 import { LOGO, getLogoPixels } from './logo.js';
 
 // Quantas peças. O polvo tem 60×48 pixels, então use divisores:
@@ -130,7 +130,7 @@ export function initPuzzle({ reduceMotion }) {
       return;
     }
 
-    const split = SplitText.create(phrase, { type: 'words,chars' });
+    const split = splitText(phrase, { type: 'words,chars' });
     gsap.timeline({ onComplete: () => homeLink.focus({ preventScroll: true }) })
       .fromTo(board, { scale: 1 }, { scale: 1.04, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 })
       .fromTo(split.chars,

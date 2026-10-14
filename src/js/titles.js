@@ -13,7 +13,7 @@
 // acende sozinho, sem depender da rolagem.
 // =========================================================
 import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
+import { splitText } from './split.js';
 
 const TITLE = {
   ghost: 0.06,      // quanto a letra aparece antes de acender (0 = invisível)
@@ -37,7 +37,7 @@ export function initTitles({ reduceMotion }) {
   const titles = gsap.utils.toArray('[data-title-reveal]');
 
   const splits = titles.map((title) =>
-    SplitText.create(title, {
+    splitText(title, {
       type: 'words,chars', // "words" evita quebrar uma palavra no meio
       onSplit: (self) => {
         // estado inicial primeiro (garante que TODAS as letras comecem apagadas)

@@ -3,7 +3,7 @@
 // =========================================================
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
+import { splitText } from './split.js';
 import { getLogoPixels, LOGO } from './logo.js';
 
 // Ajustes finos da animação
@@ -114,7 +114,7 @@ export function initHero({ isMobile, reduceMotion }) {
     return () => ScrollTrigger.removeEventListener('refresh', onRefresh);
   }
 
-  const split = SplitText.create(title, { type: 'words,chars', mask: 'chars' });
+  const split = splitText(title, { type: 'words,chars', mask: 'chars' });
 
   const tl = gsap.timeline({
     scrollTrigger: {
