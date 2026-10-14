@@ -1,5 +1,6 @@
 // BRIEFING
 import { whatsappLink } from './config.js';
+import { track } from './analytics.js';
 
 const BLANK = '____';
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
@@ -55,7 +56,11 @@ export function initBriefing() {
 
   cta.addEventListener('click', (event) => {
     const { tipo, identidade, prazo, isOther } = answers();
-    if (tipo && identidade && prazo) return;
+    if (tipo && identidade && prazo) {
+      const data = new FormData(form);
+      track('whatsapp-briefing', { tipo: data.get('tipo'), identidade, prazo });
+      return;
+    }
     event.preventDefault();
     if (!tipo && isOther) otherInput.focus();
     else if (!tipo) form.querySelector('input[name="tipo"]').focus();

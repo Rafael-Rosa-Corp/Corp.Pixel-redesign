@@ -11,6 +11,7 @@ import { initPixelReveal } from './js/pixel-reveal.js';
 import { initTitles } from './js/titles.js';
 import { initSocialIcons } from './js/social-icons.js';
 import { whatsappLink } from './js/config.js';
+import { initAnalytics } from './js/analytics.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
@@ -20,6 +21,7 @@ ScrollTrigger.config({ ignoreMobileResize: true });
 initMenu();
 initAnchors();
 initSocialIcons();
+initAnalytics();
 document.querySelectorAll('[data-whatsapp]').forEach((link) => {
   link.href = whatsappLink();
 });

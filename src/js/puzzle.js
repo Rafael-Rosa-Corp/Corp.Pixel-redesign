@@ -2,6 +2,7 @@
 import { gsap } from 'gsap';
 import { splitText } from './split.js';
 import { LOGO, getLogoPixels } from './logo.js';
+import { track } from './analytics.js';
 
 // Divisores de 60×48; se mudar, ajuste .puzzle e .puzzle__slot no notfound.css
 const PUZZLE = { cols: 3, rows: 2 };
@@ -106,6 +107,7 @@ export function initPuzzle({ reduceMotion }) {
   // --- Montou! ---
   function finish() {
     solved = true;
+    track('404-montado', { trocas: moves });
     select(null);
     page.classList.remove('is-playing');
     page.classList.add('is-solved');

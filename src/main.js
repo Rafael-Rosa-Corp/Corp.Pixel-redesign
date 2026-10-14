@@ -17,6 +17,7 @@ import { initCtaPixels } from './js/cta-pixels.js';
 import { initLab } from './js/lab.js';
 import { initTitles } from './js/titles.js';
 import { initSocialIcons } from './js/social-icons.js';
+import { initAnalytics } from './js/analytics.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
@@ -27,6 +28,7 @@ initMenu();
 initAnchors();
 initBriefing();
 initSocialIcons();
+initAnalytics();
 
 const mm = gsap.matchMedia();
 
