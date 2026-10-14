@@ -1,134 +1,41 @@
-# Corporação Pixel — site (v0.1)
+# Corporação Pixel — site
 
-Primeira versão da home. Vite + HTML/CSS/JS puro + GSAP (ScrollTrigger, ScrollSmoother, SplitText).
+Vite + HTML/CSS/JS puro + GSAP (ScrollTrigger, ScrollSmoother, SplitText).
 
-## Rodar no seu PC
+## Rodar no PC
 
 ```bash
-npm install      # só na primeira vez
-npm run dev      # abre em http://localhost:5173 com recarregamento automático
-npm run build    # gera a versão final na pasta dist/ (é o que o Vercel publica)
+npm install      # só na primeira vez (ou quando mudar dependência)
+npx vite --host  # abre em http://localhost:5173 (e no celular pela rede)
+npm run build    # gera a versão final em dist/
 ```
-
-No Vercel: importe o repositório. Ele reconhece o Vite sozinho (build `npm run build`, saída `dist`).
 
 ## Estrutura
 
 ```
-index.html              → home: todo o conteúdo (textos, seções, links)
-trabalhos/raiz/         → página do case Raíz (index.html)
-404.html                → página não encontrada (quebra-cabeça do polvo)
-public/.htaccess        → faz a 404 funcionar em hospedagem Apache (Hostinger)
-vite.config.js          → lista das páginas (cada case novo entra aqui)
-public/images/          → imagens (logo, cases; telas do Raíz em images/raiz/)
-src/main.js             → home: liga tudo e separa desktop / celular / movimento reduzido
-src/case.js             → páginas de case: menu, scroll suave, títulos e pixelado
-src/notfound.js         → página 404 (quebra-cabeça em src/js/puzzle.js)
-src/js/                 → um arquivo por parte do site
-  config.js             → NÚMERO DO WHATSAPP
-  menu.js               → menu em tela cheia
-  hero.js               → pixels que montam o polvo
-  manifesto.js          → linhas gigantes que se abrem
-  pixel-reveal.js       → imagens dos cases que ganham nitidez
-  process.js            → processo com "câmera" horizontal
-  about.js              → linhas do Sobre que acendem
-  briefing.js           → mensagem do WhatsApp montada pelas respostas
-  lab.js                → vídeos do Lab (só o estudo ativo toca)
-  titles.js             → títulos com letras que acendem fora de ordem
-  smooth.js             → configuração do scroll suave (vale para todas as páginas)
-  logo.js / scroll.js   → utilidades
-src/data/logo.json      → o polvo em pixels (usado pelo hero e pelo menu)
-src/css/                → um arquivo por seção
-  tokens.css            → CORES, FONTES E ESPAÇAMENTOS (comece por aqui)
-  main.css              → entrada da home
-  case-page.css / case.css → entrada e estilos das páginas de case
+index.html            → home
+trabalhos/raiz/       → case Raíz
+404.html              → página não encontrada (quebra-cabeça)
+vite.config.js        → lista das páginas
+public/               → imagens, vídeos, ícones, robots, sitemap, .htaccess
+src/main.js           → home
+src/case.js           → páginas de case
+src/notfound.js       → 404
+src/js/               → um arquivo por parte do site
+src/css/              → um arquivo por seção (tokens.css = cores, fontes, espaçamentos)
 ```
 
 ## Regras do código
 
-- Zero CSS inline: tudo em classes (padrão `bloco__elemento`, ex.: `.process-card__title`).
-  A única exceção é o GSAP, que escreve `transform`/`opacity` no elemento enquanto anima.
+- Sem CSS inline: tudo em classes (`bloco__elemento`). Exceção: o GSAP enquanto anima.
 - Mobile-first, medidas fluidas (`clamp()`, `rem`, `vw`, `svh`).
-- Cada seção funciona sem JavaScript e com "movimento reduzido" ativado no sistema:
-  o CSS mostra o estado final e o JS só adiciona a animação por cima.
+- Tudo funciona sem JavaScript e com "movimento reduzido": o CSS mostra o estado final.
 
-## Comportamento por tela
+## Publicação
 
-| Seção     | Desktop                                  | Celular                                  |
-|-----------|------------------------------------------|------------------------------------------|
-| Scroll    | Suave (ScrollSmoother)                   | Nativo                                   |
-| Hero      | Pixels espalhados pela tela toda         | Espalhamento menor, montagem mais curta  |
-| Manifesto | Linhas se abrem com pin                  | Igual, mais curto                        |
-| Trabalhos | Nitidez ao entrar na tela + no hover     | Nitidez ao entrar na tela                |
-| Processo  | Câmera horizontal + fundo em profundidade| Horizontal, sem a camada de fundo        |
-| Sobre     | Linha ativa acende e mostra o comentário | Igual                                    |
-| Lab       | Zigue-zague, texto entra ao chegar       | Estudo ativo em foco, outros apagados    |
-|           | Nome do estudo com o efeito dos títulos  | Igual                                    |
-| Títulos   | Letras acendem fora de ordem com a rolagem | Igual                                  |
+Todo `git push` na `main` publica sozinho na Hostinger
+(`.github/workflows/deploy.yml`: build + FTP para `public_html`).
 
-Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/trackpad.
-
-## Ajustes rápidos
-
-- **Cores/fontes:** `src/css/tokens.css`
-- **WhatsApp:** `src/js/config.js` → `WHATSAPP_NUMBER`
-- **Instagram:** procure `Instagram` no `index.html`
-- **Velocidade do hero:** `SETTINGS` no topo de `src/js/hero.js`
-- **Duração do manifesto:** `end: '+=140%'` em `src/js/manifesto.js`
-- **Profundidade do processo:** `BG_SPEED` em `src/js/process.js`
-- **Passos do pixelado:** `STEPS` em `src/js/pixel-reveal.js`
-- **Scroll suave:** `SCROLL` em `src/js/smooth.js`
-- **Peças do quebra-cabeça da 404:** `PUZZLE` em `src/js/puzzle.js` (+ `.puzzle` no `notfound.css`)
-- **Cores do case:** variáveis `--case-*` no topo de `src/css/case.css`
-- **Efeito dos títulos:** `TITLE` no topo de `src/js/titles.js`; para usar em outro
-  título, coloque `data-title-reveal` nele no `index.html`
-
-## Pendências (textos entre colchetes no index.html)
-
-- [ ] Imagem do Raíz → coloque em `public/images/` e troque o `src` do `<img>` em "TRABALHOS"
-      (hoje é `work-raiz.svg`, provisório). Escreva também o `alt`.
-- [ ] Case da arquiteta: fora por enquanto (aguardando resposta sobre o site novo).
-      Ao voltar a ter 2 cases, tire a classe `works__grid--single` do grid.
-- [ ] Linha 03 do Sobre (nova frase + comentário) e revisão final dos textos do Sobre
-- [x] Número do WhatsApp e Instagram
-- [x] Vídeos do Lab (Hanami, Pringles, Novo Mundo). Padrão de cada vídeo em `public/videos/lab/`:
-      `nome-1280.mp4`, `nome-1280.webm` (desktop), `nome-720.mp4`, `nome-720.webm` (celular)
-      e `nome-poster.webp`; proporção 1280×592; no HTML basta `data-video="/videos/lab/nome"`
-      e a mesma capa no `<img class="lab__poster">`. Só o estudo ativo toca (`src/js/lab.js`).
-- [ ] Revisar as descrições curtas dos estudos do Lab (`.lab__desc` no index.html)
-- [x] Case do Raíz em página própria (`/trabalhos/raiz/`)
-- [ ] Vídeo do Raíz para o celular do topo do case
-- [ ] Confirmar o motivo da decisão "Abre pelo link, sem loja de aplicativos" no case
-- [x] Página 404 (testar em `/404.html` no `npx vite`)
-- [x] SEO básico (título, descrição, prévia do link, dados estruturados, sitemap, ícones)
-- [ ] Publicação: configurar FTP e segredos (seção Publicação)
-- [ ] Header branco some sobre áreas claras (palcos creme, card do Raíz, vídeo da Hanami)
-- [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
-
-## Publicação (Hostinger, automática)
-
-A cada `git push` na `main`, o GitHub monta o site e envia a pasta `dist/` por FTP
-(arquivo `.github/workflows/deploy.yml`). Configuração, uma vez só:
-
-1. **Backup do site antigo (WordPress)**: no hPanel, faça backup dos arquivos e do banco
-   de dados. Depois apague os arquivos do WordPress de dentro de `public_html`
-   (principalmente `index.php` e `.htaccess`), senão o servidor continua abrindo o WordPress.
-2. **Conta FTP**: hPanel → Arquivos → Contas FTP → criar uma conta com a pasta `public_html`
-   do pixelcorp.tech. Anote servidor (IP ou ftp.pixelcorp.tech), usuário e senha.
-3. **Segredos no GitHub**: repositório → Settings → Secrets and variables → Actions →
-   aba *Secrets* → New repository secret: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`.
-4. **Ligar**: mesma tela, aba *Variables* → New repository variable:
-   `DEPLOY_ENABLED` = `true`.
-5. **Primeira publicação**: aba Actions → "Publicar na Hostinger" → Run workflow.
-   Depois disso, todo push publica sozinho.
-
-Para pausar a publicação, mude `DEPLOY_ENABLED` para `false`.
-
-## SEO
-
-- Título e descrição: `<title>` e `<meta name="description">` no topo de cada página
-- Prévia do link (WhatsApp etc.): tags `og:` + imagens em `public/images/og/` (1200×630)
-- Dados para o Google: bloco `application/ld+json` no `index.html`
-- `public/robots.txt` e `public/sitemap.xml` (página nova = um `<url>` novo no sitemap)
-- Ícones: `public/favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`
-- Depois de publicar: cadastrar o site no Google Search Console e enviar o sitemap
+- Segredos no GitHub: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`
+- Variável `DEPLOY_ENABLED` = `true` liga; `false` pausa
+- Publicar na mão: aba Actions → "Publicar na Hostinger" → Run workflow
