@@ -3,6 +3,7 @@
 # =========================================================
 
 Options -Indexes
+DirectoryIndex index.html
 
 # Cache de páginas do LiteSpeed desligado: era do WordPress e guardava a home antiga
 <IfModule LiteSpeed>
