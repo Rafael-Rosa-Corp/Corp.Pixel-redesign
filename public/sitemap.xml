@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lista de páginas para o Google. Página nova (ex.: outro case) = um <url> novo. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pixelcorp.tech/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://pixelcorp.tech/trabalhos/raiz/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+</urlset>

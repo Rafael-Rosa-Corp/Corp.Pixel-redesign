@@ -22,6 +22,7 @@ export function initHero({ isMobile, reduceMotion }) {
   const canvas = stage.querySelector('.hero__canvas');
   const content = stage.querySelector('.hero__content');
   const title = stage.querySelector('.hero__title');
+  const kicker = stage.querySelector('.hero__kicker');
   const hint = stage.querySelector('.hero__hint');
   const ctx = canvas.getContext('2d');
 
@@ -127,6 +128,7 @@ export function initHero({ isMobile, reduceMotion }) {
 
   tl.to(state, { progress: 1, duration: 1, ease: 'none', onUpdate: requestDraw }, 0)
     .to(hint, { autoAlpha: 0, duration: 0.12, ease: 'none' }, 0)
+    .from(kicker, { autoAlpha: 0, y: 10, duration: 0.2, ease: 'power2.out' }, 0.64)
     .from(split.chars, { yPercent: 110, duration: 0.25, stagger: 0.012, ease: 'power3.out' }, 0.68);
 
   return () => {

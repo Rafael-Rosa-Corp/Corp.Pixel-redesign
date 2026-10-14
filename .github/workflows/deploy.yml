@@ -1,0 +1,51 @@
+# =========================================================
+# PUBLICAR NA HOSTINGER
+# A cada push na main: monta o site (npm run build) e envia a pasta
+# dist/ por FTP. Também dá para rodar na mão: aba Actions → "Publicar
+# na Hostinger" → Run workflow.
+#
+# Só roda depois de configurado (README → "Publicação"):
+#   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+#   Variável:  DEPLOY_ENABLED = true   (liga a publicação)
+# =========================================================
+name: Publicar na Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Montar o site
+        run: npm run build
+
+      - name: Enviar para a Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          # pasta do site no FTP. Se o usuário FTP já abre dentro de
+          # public_html, deixe "./". Se abre antes dela, use "public_html/".
+          server-dir: ./

@@ -100,5 +100,35 @@ Movimento reduzido: tudo estático, processo vira rolagem lateral com o dedo/tra
 - [ ] Vídeo do Raíz para o celular do topo do case
 - [ ] Confirmar o motivo da decisão "Abre pelo link, sem loja de aplicativos" no case
 - [x] Página 404 (testar em `/404.html` no `npx vite`)
+- [x] SEO básico (título, descrição, prévia do link, dados estruturados, sitemap, ícones)
+- [ ] Publicação: configurar FTP e segredos (seção Publicação)
 - [ ] Header branco some sobre áreas claras (palcos creme, card do Raíz, vídeo da Hanami)
 - [ ] Logo em resolução original (o mapa atual foi convertido de um PNG de 200px)
+
+## Publicação (Hostinger, automática)
+
+A cada `git push` na `main`, o GitHub monta o site e envia a pasta `dist/` por FTP
+(arquivo `.github/workflows/deploy.yml`). Configuração, uma vez só:
+
+1. **Backup do site antigo (WordPress)**: no hPanel, faça backup dos arquivos e do banco
+   de dados. Depois apague os arquivos do WordPress de dentro de `public_html`
+   (principalmente `index.php` e `.htaccess`), senão o servidor continua abrindo o WordPress.
+2. **Conta FTP**: hPanel → Arquivos → Contas FTP → criar uma conta com a pasta `public_html`
+   do pixelcorp.tech. Anote servidor (IP ou ftp.pixelcorp.tech), usuário e senha.
+3. **Segredos no GitHub**: repositório → Settings → Secrets and variables → Actions →
+   aba *Secrets* → New repository secret: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`.
+4. **Ligar**: mesma tela, aba *Variables* → New repository variable:
+   `DEPLOY_ENABLED` = `true`.
+5. **Primeira publicação**: aba Actions → "Publicar na Hostinger" → Run workflow.
+   Depois disso, todo push publica sozinho.
+
+Para pausar a publicação, mude `DEPLOY_ENABLED` para `false`.
+
+## SEO
+
+- Título e descrição: `<title>` e `<meta name="description">` no topo de cada página
+- Prévia do link (WhatsApp etc.): tags `og:` + imagens em `public/images/og/` (1200×630)
+- Dados para o Google: bloco `application/ld+json` no `index.html`
+- `public/robots.txt` e `public/sitemap.xml` (página nova = um `<url>` novo no sitemap)
+- Ícones: `public/favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`
+- Depois de publicar: cadastrar o site no Google Search Console e enviar o sitemap

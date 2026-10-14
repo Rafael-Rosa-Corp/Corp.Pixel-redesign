@@ -27,7 +27,24 @@
   pointer-events: none;
 }
 
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+/* Linha pequena acima do título: diz o que o estúdio faz (importante para o Google) */
+.hero__kicker {
+  font-family: var(--f-pixel);
+  letter-spacing: var(--ls-pixel);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  color: var(--c-muted);
+}
+
 .hero__title {
+  display: block;
   font-family: var(--f-display);
   font-weight: 700;
   font-size: var(--fs-hero);
