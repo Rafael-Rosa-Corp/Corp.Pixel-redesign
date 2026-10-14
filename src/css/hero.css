@@ -1,6 +1,4 @@
-/* =========================================================
-   HERO — pixels que se montam no polvo
-   ========================================================= */
+/* HERO */
 
 .hero__stage {
   position: relative;
@@ -34,7 +32,6 @@
   gap: var(--gap-s);
 }
 
-/* Linha pequena acima do título: diz o que o estúdio faz (importante para o Google) */
 .hero__kicker {
   font-family: var(--f-pixel);
   letter-spacing: var(--ls-pixel);

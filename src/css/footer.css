@@ -1,6 +1,4 @@
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/* FOOTER */
 
 .site-footer {
   display: flex;
@@ -38,7 +36,6 @@
   color: var(--c-text);
 }
 
-/* Ícones oficiais (pacote simple-icons), cor = cor do texto */
 .site-footer__icon {
   width: clamp(1.25rem, 1.1rem + 0.4vw, 1.5rem);
   height: auto;

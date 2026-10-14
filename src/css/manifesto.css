@@ -1,8 +1,4 @@
-/* =========================================================
-   MANIFESTO — duas linhas gigantes que se abrem
-   Estado padrão (sem JS / movimento reduzido) = aberto.
-   O JS fecha as linhas no início e abre com o scroll.
-   ========================================================= */
+/* MANIFESTO */
 
 .manifesto__stage {
   min-height: 100vh;

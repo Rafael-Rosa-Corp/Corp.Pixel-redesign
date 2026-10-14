@@ -1,21 +1,16 @@
-// =========================================================
-// PROCESSO — a seção trava e a "câmera" anda para a direita.
-// Cards (frente) andam rápido; texto de fundo anda devagar.
-// =========================================================
+// PROCESSO
 import { gsap } from 'gsap';
 
-const BG_SPEED = 0.35; // velocidade da camada de fundo (0 = parada, 1 = igual aos cards)
+const BG_SPEED = 0.35;
 
-// Profundidade dos cards fora de foco
 const DEPTH = {
-  blur: 4,      // desfoque máximo (px)
-  scale: 0.08,  // quanto diminui (0.08 = 8%)
-  rotate: 2.5,  // inclinação máxima (graus)
-  y: 18,        // deslocamento para baixo (px)
-  opacity: 0.35 // quanto apaga
+  blur: 4,
+  scale: 0.08,
+  rotate: 2.5,
+  y: 18,
+  opacity: 0.35
 };
 
-// Versão leve para o celular: sem desfoque (pesado para o celular)
 const DEPTH_MOBILE = {
   blur: 0,
   scale: 0.06,
@@ -25,7 +20,7 @@ const DEPTH_MOBILE = {
 };
 
 export function initProcess({ isMobile, reduceMotion }) {
-  if (reduceMotion) return; // fica a rolagem lateral nativa (CSS)
+  if (reduceMotion) return;
 
   const section = document.querySelector('.process');
   const stage = section.querySelector('.process__stage');
@@ -40,16 +35,12 @@ export function initProcess({ isMobile, reduceMotion }) {
   section.classList.add('is-animated');
   gsap.set(bg, { yPercent: -50, y: 0 });
 
-  // Quanto o trilho precisa andar para o último card chegar na tela
   const distance = () => Math.max(0, track.scrollWidth - stage.clientWidth);
 
-  // O card em foco acompanha o progresso (o 1º no começo, o último no fim).
-  // Os outros ficam desfocados, menores e levemente tortos, conforme a distância.
   const depth = isMobile ? DEPTH_MOBILE : DEPTH;
   function setDepth(progress) {
     const focus = progress * (cards.length - 1);
     cards.forEach((card, i) => {
-      // pequena "zona de foco": o card fica nítido um pouco antes e depois do centro
       const d = Math.min(Math.max(Math.abs(i - focus) - 0.15, 0) / 0.85, 1);
       const side = i < focus ? -1 : 1;
       gsap.set(card, {
@@ -64,7 +55,6 @@ export function initProcess({ isMobile, reduceMotion }) {
 
   let current = -1;
   function setActive(progress) {
-    // mesmo cálculo do foco dos cards: o número mostra o card que está nítido
     const index = Math.round(progress * (total - 1));
     if (index === current) return;
     current = index;

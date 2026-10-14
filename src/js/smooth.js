@@ -1,13 +1,9 @@
-// =========================================================
-// SCROLL SUAVE — mesma configuração em todas as páginas
-// Só no desktop com mouse; no celular, scroll nativo.
-// =========================================================
+// SCROLL SUAVE
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
-// Ajuste do scroll no desktop (ScrollSmoother)
 export const SCROLL = {
-  smooth: 1.1, // segundos para "alcançar" a rolagem: maior = mais suave/arrastado
-  speed: 0.8,  // velocidade geral da rolagem: 1 = normal, menor = menos sensível
+  smooth: 1.1,
+  speed: 0.8,
 };
 
 export function initSmoother({ isDesktop, finePointer, reduceMotion }) {

@@ -12,7 +12,6 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="canonical" href="https://pixelcorp.tech/">
 
-  <!-- Prévia do link (WhatsApp, Instagram, LinkedIn, Facebook...) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Corporação Pixel">
   <meta property="og:locale" content="pt_BR">
@@ -25,11 +24,9 @@
   <meta property="og:image:alt" content="Polvo em pixel art da Corporação Pixel ao lado da frase “Nada é por acaso.”">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fontes do próprio site: as que aparecem primeiro carregam antes -->
   <link rel="preload" href="/fonts/pixelify-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/cantarell-400.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Dados para o Google: quem é o estúdio, onde atende e como falar -->
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -163,8 +160,7 @@
             <h2 class="works__title" data-title-reveal id="works-title">Trabalhos</h2>
           </header>
 
-          <!-- Com 1 case: "works__grid--single" deixa o card na largura toda.
-               Quando tiver 2 ou mais, é só tirar essa classe. -->
+          <!-- Com 2 ou mais cases, tire a classe works__grid--single -->
           <div class="works__grid works__grid--single">
             <article class="work-card">
               <a class="work-card__link" href="/trabalhos/raiz/">
@@ -185,8 +181,6 @@
               <h3 class="lab__title">Lab</h3>
               <span class="lab__subtitle">Estudos e experimentos de interação</span>
             </header>
-            <!-- Os cards alternam de lado sozinhos no desktop (1º à esquerda, 2º à direita...).
-                 Para adicionar um estudo, copie um <li> inteiro e troque número, textos e vídeo. -->
             <ul class="lab__list">
               <li class="lab__item">
                 <div class="lab__media lab__media--video">
@@ -302,7 +296,7 @@
             <h2 class="about__title" data-title-reveal id="about-title">Cada linha, pensada.</h2>
           </header>
 
-          <!-- invólucro sem flex: necessário para a trava (pin) da lista funcionar -->
+          <!-- invólucro sem flex: necessário para a trava (pin) da lista -->
           <div class="about__pin">
               <ol class="about__lines">
               <li class="about__line">
@@ -371,7 +365,6 @@
                 <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="tenho uma empresa de serviços"><span class="briefing__pill">Serviços</span></label>
                 <label class="briefing__option"><input class="briefing__input" type="radio" name="tipo" value="outro"><span class="briefing__pill">Outro</span></label>
               </div>
-              <!-- Aparece só quando "Outro" é escolhido -->
               <div class="briefing__other" data-briefing-other hidden>
                 <label class="briefing__other-label" for="briefing-outro">Conta pra gente o que você faz</label>
                 <input class="briefing__other-input" id="briefing-outro" name="outro" type="text" maxlength="60" autocomplete="off" placeholder="ex.: fotografia, escola de música, ONG">

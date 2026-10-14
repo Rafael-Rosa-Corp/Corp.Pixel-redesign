@@ -1,31 +1,10 @@
-// =========================================================
-// LAB — vídeos dos estudos
-//
-// No HTML: <video class="lab__video" data-video="/videos/lab/nome" ...>
-// Arquivos esperados em public/videos/lab/:
-//   nome-1280.mp4 / nome-1280.webm  → desktop
-//   nome-720.mp4  / nome-720.webm   → celular
-//   nome-poster.webp                → capa (vídeo parado)
-//
-// - Só o estudo ATIVO toca: o que estiver mais perto do meio da tela.
-//   Os outros ficam parados na capa. Ao ficar ativo, recomeça do início.
-// - Desktop: número, descrição e ferramentas aparecem (máscara, linha a
-//   linha) quando o card chega a 70% da tela, uma vez só. O nome usa o
-//   efeito dos títulos (titles.js), nas duas telas.
-// - Celular: o ativo fica em foco e os outros apagam (CSS, .has-focus).
-// - Vídeos carregam só quando chegam perto da tela.
-// - Movimento reduzido: nada toca sozinho; aparecem os controles.
-// - Autoplay bloqueado pelo aparelho (ex.: iPhone em Modo Economia de
-//   Bateria): aparecem os controles e a pessoa dá o play.
-// =========================================================
+// LAB
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { splitText } from './split.js';
 
-// Faixa da tela em que o Lab fica "ligado" (a lista entra em 70% e sai em 30%)
 const ZONE = { start: 'top 70%', end: 'bottom 30%' };
 
-// Entrada do texto no desktop
 const REVEAL = { duration: 0.9, stagger: 0.08 };
 
 export function initLab({ isMobile, reduceMotion }) {
@@ -40,7 +19,6 @@ export function initLab({ isMobile, reduceMotion }) {
 
   const size = isMobile ? '720' : '1280';
 
-  // Coloca os arquivos certos no vídeo (só uma vez por tamanho)
   const load = (video) => {
     const base = `${video.dataset.video}-${size}`;
     if (video.dataset.loaded === base) return;
@@ -63,7 +41,6 @@ export function initLab({ isMobile, reduceMotion }) {
 
   section.classList.add('is-interactive');
 
-  // Carrega cada vídeo um pouco antes de ele chegar na tela
   const loader = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (!isIntersecting) return;
@@ -84,14 +61,13 @@ export function initLab({ isMobile, reduceMotion }) {
     const { el, video } = item;
     el.classList.add('is-active');
     load(video);
-    if (el.classList.contains('is-blocked')) return; // a pessoa dá o play
+    if (el.classList.contains('is-blocked')) return;
     try {
       video.currentTime = 0;
     } catch {
-      // vídeo ainda sem dados: ele já começa do início
     }
     video.play().catch((error) => {
-      // "AbortError" = foi pausado antes de começar (rolagem rápida): normal
+      // "AbortError" = pausado antes de começar (rolagem rápida): normal
       if (error.name !== 'NotAllowedError') return;
       el.classList.add('is-blocked');
       video.controls = true;
@@ -104,16 +80,15 @@ export function initLab({ isMobile, reduceMotion }) {
   }
 
   // --- Texto (só desktop): começa escondido e entra linha a linha ---
-  // Entra quando o card chega a 70% da tela (ou quando fica ativo, o que vier antes).
   const revealTriggers = [];
   if (!isMobile) {
     items.forEach((item) => {
-      // o nome do estudo fica de fora: ele usa o efeito dos títulos (titles.js)
+      // o nome do estudo usa o efeito dos títulos (titles.js)
       const lines = [...item.info.children].filter((el) => !el.hasAttribute('data-title-reveal'));
       item.split = splitText(lines, {
         type: 'lines',
         mask: 'lines',
-        autoSplit: true, // refaz as linhas se a tela mudar de largura
+        autoSplit: true,
         onSplit: (self) => {
           if (!item.revealed) gsap.set(self.lines, { yPercent: 100 });
         },
@@ -151,7 +126,6 @@ export function initLab({ isMobile, reduceMotion }) {
     }
   }
 
-  // O mais perto do meio da tela (calculado ao vivo)
   const pick = () => {
     const middle = window.innerHeight / 2;
     let nearest = null;
@@ -175,7 +149,7 @@ export function initLab({ isMobile, reduceMotion }) {
     onEnter: pick,
     onEnterBack: pick,
     onLeave: () => {
-      items.forEach(reveal); // passou direto: o texto não fica escondido
+      items.forEach(reveal);
       activate(null);
     },
     onLeaveBack: () => activate(null),

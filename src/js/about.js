@@ -1,19 +1,11 @@
-// =========================================================
-// SOBRE — a linha ativa acende e mostra o comentário
-//
-// Desktop: a lista trava no meio da tela e cada linha ganha um
-//          "pedaço" fixo de rolagem (LINE_SCROLL), então uma rolagem
-//          leve não pula duas linhas.
-// Celular: sem trava; acende a linha que passa pela marca de 60% da tela.
-// =========================================================
+// SOBRE
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Quanto rolar para trocar de linha no desktop (fração da altura da tela)
 const LINE_SCROLL = 0.45;
 
 export function initAbout({ isDesktop, reduceMotion }) {
-  if (reduceMotion) return; // todas as linhas visíveis (CSS)
+  if (reduceMotion) return;
 
   const section = document.querySelector('.about');
   const list = section.querySelector('.about__lines');
@@ -21,8 +13,7 @@ export function initAbout({ isDesktop, reduceMotion }) {
   const wraps = lines.map((line) => line.querySelector('.about__comment-wrap'));
   section.classList.add('is-interactive');
 
-  // Abre/fecha o comentário medindo a altura real do texto.
-  // (O GSAP calcula o "auto" na hora, então não corta linha em nenhum navegador.)
+  // GSAP mede o height "auto" na hora (o grid 0fr/1fr cortava o texto no Safari)
   function setActive(line, wrap, active) {
     line.classList.toggle('is-active', active);
     gsap.to(wrap, {
@@ -44,7 +35,6 @@ export function initAbout({ isDesktop, reduceMotion }) {
   let trigger;
 
   if (isDesktop) {
-    // Trava a lista no centro e divide a rolagem em partes iguais por linha
     trigger = ScrollTrigger.create({
       trigger: list,
       start: 'center center',
@@ -58,7 +48,6 @@ export function initAbout({ isDesktop, reduceMotion }) {
       onLeaveBack: () => activate(-1),
     });
   } else {
-    // Celular: acende a linha que estiver na marca de 60% da tela (calculado ao vivo)
     const pick = () => {
       const mark = window.innerHeight * 0.6;
       let index = -1;
@@ -74,8 +63,7 @@ export function initAbout({ isDesktop, reduceMotion }) {
       onUpdate: pick,
       onEnter: pick,
       onEnterBack: pick,
-      onLeaveBack: () => activate(-1), // voltou para cima da lista: apaga tudo
-      // ao passar da lista para baixo, a última linha continua acesa
+      onLeaveBack: () => activate(-1),
     });
   }
 

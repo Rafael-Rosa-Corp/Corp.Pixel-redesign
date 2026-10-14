@@ -1,8 +1,4 @@
-/* =========================================================
-   SOBRE — "Cada linha, pensada." (linhas de código)
-   Sem JS: todas as linhas visíveis com comentário.
-   Com JS (.is-interactive): só a linha ativa acende.
-   ========================================================= */
+/* SOBRE */
 
 .about {
   display: flex;
@@ -55,7 +51,6 @@
   line-height: 1.25;
 }
 
-/* Cursor de pixel no fim da linha ativa */
 .about__statement::after {
   content: '';
   display: inline-block;
@@ -67,8 +62,7 @@
   opacity: 0;
 }
 
-/* Invólucro do comentário: no modo interativo começa fechado (altura 0)
-   e o about.js abre com a altura real do texto (funciona em todos os navegadores) */
+/* Altura 0 aqui; o about.js abre medindo o texto (o grid 0fr/1fr cortava no Safari) */
 .about__comment-wrap {
   overflow: hidden;
 }

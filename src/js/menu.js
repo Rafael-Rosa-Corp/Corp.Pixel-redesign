@@ -1,12 +1,9 @@
-// =========================================================
-// MENU — abrir/fechar, foco, trava do scroll
-// =========================================================
+// MENU
 import { gsap } from 'gsap';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { drawLogo, LOGO } from './logo.js';
 import { scrollToHash } from './scroll.js';
 
-// Cores do polvo sobre o fundo vermelho do menu
 const MENU_PALETTE = { ...LOGO.palette, R: '#121212', P: '#5E0A1C', W: '#FBEFF1' };
 
 export function initMenu() {
@@ -57,8 +54,7 @@ export function initMenu() {
     if (event.key === 'Escape') close();
   });
 
-  // Links do menu: fecha e depois rola até a seção.
-  // Link para outra página (ex.: "/#trabalhos" dentro de um case): só fecha e segue.
+  // Link para outra página (ex.: "/#trabalhos" num case): só fecha e deixa navegar
   menu.querySelectorAll('[data-menu-link]').forEach((link) => {
     link.addEventListener('click', (event) => {
       const hash = link.getAttribute('href');

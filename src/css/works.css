@@ -1,6 +1,4 @@
-/* =========================================================
-   TRABALHOS — cases + Lab
-   ========================================================= */
+/* TRABALHOS */
 
 .works {
   display: flex;
@@ -43,7 +41,6 @@
   }
 }
 
-/* Um case só, em destaque: largura toda e imagem mais panorâmica no desktop */
 .works__grid--single {
   grid-template-columns: 1fr;
 }
@@ -122,7 +119,6 @@
   color: var(--c-muted);
 }
 
-/* Base = celular: um card embaixo do outro, texto embaixo do vídeo */
 .lab__list {
   display: flex;
   flex-direction: column;
@@ -135,8 +131,7 @@
   gap: var(--gap-m);
 }
 
-/* Proporção padrão dos vídeos do Lab: 1280×592 (tela gravada sem a barra do navegador).
-   Todos os vídeos são exportados nessa medida, então não sobra borda nem corta lateral. */
+/* Vídeos do Lab são exportados em 1280×592 */
 .lab__media {
   display: grid;
   place-items: center;
@@ -160,7 +155,6 @@
   object-fit: cover;
 }
 
-/* Capa por cima do vídeo: aparece quando o vídeo está parado (só com JS) */
 .lab__poster {
   display: none;
 }
@@ -197,7 +191,6 @@
   transition: color 0.4s ease;
 }
 
-/* Com JS: o número acende só no estudo ativo */
 .lab.is-interactive .lab__num {
   color: var(--c-muted);
 }
@@ -245,8 +238,7 @@
   }
 }
 
-/* --- Desktop / tablet (768px+): zigue-zague ---
-   Vídeo grande de um lado, texto do outro. Os pares (2º, 4º...) invertem. */
+/* --- Desktop / tablet (768px+): zigue-zague --- */
 @media (min-width: 768px) {
   .lab__item {
     display: grid;

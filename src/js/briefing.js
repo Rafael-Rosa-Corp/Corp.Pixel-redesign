@@ -1,6 +1,4 @@
-// =========================================================
-// BRIEFING — as respostas escrevem a mensagem do WhatsApp
-// =========================================================
+// BRIEFING
 import { whatsappLink } from './config.js';
 
 const BLANK = '____';
@@ -13,12 +11,10 @@ export function initBriefing() {
   const other = form.querySelector('[data-briefing-other]');
   const otherInput = other.querySelector('input');
 
-  // Links genéricos de WhatsApp (menu etc.)
   document.querySelectorAll('[data-whatsapp]').forEach((link) => {
     link.href = whatsappLink();
   });
 
-  // Lê as respostas. Em "Outro", a frase vem do que a pessoa escreveu.
   function answers() {
     const data = new FormData(form);
     const tipo = data.get('tipo');
@@ -44,12 +40,10 @@ export function initBriefing() {
     cta.href = whatsappLink(complete ? message : '');
     cta.setAttribute('aria-disabled', String(!complete));
 
-    // Avisa quando o formulário acabou de ficar completo (o botão "acende")
     if (complete && !wasComplete) form.dispatchEvent(new CustomEvent('briefing:complete'));
     wasComplete = complete;
   }
 
-  // Ao escolher "Outro", o cursor já vai para o campo
   form.querySelectorAll('input[name="tipo"]').forEach((radio) => {
     radio.addEventListener('change', () => {
       if (radio.value === 'outro' && radio.checked) {
@@ -59,7 +53,6 @@ export function initBriefing() {
     });
   });
 
-  // Se faltar resposta, leva a pessoa até a pergunta em aberto
   cta.addEventListener('click', (event) => {
     const { tipo, identidade, prazo, isOther } = answers();
     if (tipo && identidade && prazo) return;

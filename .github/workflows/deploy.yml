@@ -1,13 +1,5 @@
-# =========================================================
-# PUBLICAR NA HOSTINGER
-# A cada push na main: monta o site (npm run build) e envia a pasta
-# dist/ por FTP. Também dá para rodar na mão: aba Actions → "Publicar
-# na Hostinger" → Run workflow.
-#
-# Só roda depois de configurado (README → "Publicação"):
-#   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-#   Variável:  DEPLOY_ENABLED = true   (liga a publicação)
-# =========================================================
+# PUBLICAR NA HOSTINGER (build + FTPS)
+# Precisa dos segredos FTP_SERVER, FTP_USERNAME, FTP_PASSWORD e da variável DEPLOY_ENABLED=true
 name: Publicar na Hostinger
 
 on:
@@ -45,8 +37,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps   # FTP com criptografia (a senha não trafega aberta)
+          protocol: ftps
           local-dir: ./dist/
-          # pasta do site no FTP. Se o usuário FTP já abre dentro de
-          # public_html, deixe "./". Se abre antes dela, use "public_html/".
-          server-dir: ./
+          server-dir: ./   # a conta FTP já abre dentro de public_html

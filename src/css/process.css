@@ -1,8 +1,4 @@
-/* =========================================================
-   PROCESSO — "câmera" andando para a direita
-   Sem JS / movimento reduzido: trilho com rolagem lateral normal.
-   Com animação: o JS adiciona .is-animated e controla pelo scroll.
-   ========================================================= */
+/* PROCESSO */
 
 .process {
   border-top: 1px solid var(--c-line);
@@ -20,7 +16,6 @@
   overflow: hidden;
 }
 
-/* Camada de fundo (anda devagar) */
 .process__bg {
   position: absolute;
   top: 50%;
@@ -39,7 +34,7 @@
 
 @media (max-width: 767px) {
   .process__bg {
-    display: none; /* no celular fica só a camada dos cards */
+    display: none;
   }
 }
 
@@ -57,7 +52,6 @@
   line-height: 1.1;
 }
 
-/* Trilho de cards (camada da frente) */
 .process__viewport {
   position: relative;
   overflow-x: auto;
@@ -87,7 +81,7 @@
 
 @media (min-width: 768px) {
   .process.is-animated .process__track {
-    padding-left: 38vw; /* o primeiro card começa entrando pela direita */
+    padding-left: 38vw;
   }
 }
 
@@ -114,7 +108,6 @@
   color: var(--c-muted);
 }
 
-/* Card com imagem (sem o texto de placeholder) */
 .process-card__media--image {
   display: block;
   padding: 0;
@@ -127,7 +120,6 @@
   object-fit: cover;
 }
 
-/* Celular baixo: imagem menor para caber card + texto na tela */
 @media (max-height: 700px) {
   .process-card__media {
     aspect-ratio: 16 / 9;
@@ -184,7 +176,6 @@
   color: var(--c-muted);
 }
 
-/* Sem animação, o progresso não faz sentido */
 .process:not(.is-animated) .process__progress {
   display: none;
 }

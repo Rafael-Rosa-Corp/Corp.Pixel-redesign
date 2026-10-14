@@ -1,6 +1,4 @@
-/* =========================================================
-   BASE — reset e estilos globais
-   ========================================================= */
+/* BASE */
 
 *,
 *::before,
@@ -56,7 +54,6 @@ button {
   outline-offset: 4px;
 }
 
-/* Texto só para leitores de tela */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -69,7 +66,6 @@ button {
   border: 0;
 }
 
-/* Link "pular para o conteúdo" (acessibilidade) */
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -85,7 +81,6 @@ button {
   transform: none;
 }
 
-/* Rótulos "// texto" usados em várias seções */
 .manifesto__label,
 .process__label,
 .about__label,
@@ -97,8 +92,6 @@ button {
   color: var(--c-muted);
 }
 
-/* Canvas do efeito pixelado (criado pelo pixel-reveal.js por cima da imagem).
-   Usado nos cards da home e nas telas dos cases. */
 .pixel-reveal__canvas {
   position: absolute;
   inset: 0;

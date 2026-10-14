@@ -1,17 +1,11 @@
-/* =========================================================
-   CASE — página de um trabalho (ex.: /trabalhos/raiz/)
-   Base = celular. Desktop/tablet (768px+) no fim de cada bloco.
-   ========================================================= */
+/* CASE */
 
-/* Cores do projeto apresentado (aqui, o Raíz).
-   Para outro case, troque estes valores e o resto acompanha. */
 .case {
-  --case-cream: #FDF6F0;   /* fundo dos palcos (cor de fundo do app) */
-  --case-ink: #1E1E1E;     /* moldura do celular (o Raíz não usa preto puro) */
+  --case-cream: #FDF6F0;
+  --case-ink: #1E1E1E;     /* o Raíz não usa preto puro */
   --case-shadow: rgba(90, 30, 20, 0.4);
 }
 
-/* Rótulos "// texto" */
 .case-hero__label,
 .case-section__label,
 .case-extras__label,
@@ -24,9 +18,7 @@
   color: var(--c-muted);
 }
 
-/* ---------------------------------------------------------
-   TOPO
-   --------------------------------------------------------- */
+/* --- TOPO --- */
 .case-hero {
   display: flex;
   flex-direction: column;
@@ -102,7 +94,6 @@
   color: var(--c-red-light);
 }
 
-/* Palco com as cores do projeto: logo + celular */
 .case-hero__stage {
   position: relative;
   display: grid;
@@ -147,9 +138,7 @@
   }
 }
 
-/* ---------------------------------------------------------
-   CELULAR (moldura das telas)
-   --------------------------------------------------------- */
+/* --- CELULAR (moldura das telas) --- */
 .case-phone {
   position: relative;
   margin: 0;
@@ -170,9 +159,7 @@
   object-fit: cover;
 }
 
-/* ---------------------------------------------------------
-   SEÇÕES DE TEXTO
-   --------------------------------------------------------- */
+/* --- SEÇÕES DE TEXTO --- */
 .case-section {
   display: flex;
   flex-direction: column;
@@ -202,7 +189,6 @@
   color: var(--c-text-soft);
 }
 
-/* O problema: título de um lado, texto do outro (telas largas) */
 @media (min-width: 1024px) {
   .case-context {
     display: grid;
@@ -216,9 +202,7 @@
   }
 }
 
-/* ---------------------------------------------------------
-   O QUE O APP FAZ
-   --------------------------------------------------------- */
+/* --- O QUE O APP FAZ --- */
 .case-features__list {
   display: flex;
   flex-direction: column;
@@ -260,7 +244,6 @@
   color: var(--c-text-soft);
 }
 
-/* Palco creme com o(s) celular(es) */
 .case-feature__media {
   display: flex;
   justify-content: center;
@@ -273,7 +256,6 @@
   width: min(60vw, 16rem);
 }
 
-/* Dois celulares lado a lado: dividem o espaço */
 .case-feature__media--double .case-phone {
   flex: 1 1 0;
   width: auto;
@@ -311,7 +293,6 @@
   }
 }
 
-/* "E ainda": recursos sem tela própria */
 .case-extras {
   display: flex;
   flex-direction: column;
@@ -347,9 +328,7 @@
   }
 }
 
-/* ---------------------------------------------------------
-   FRASE EM DESTAQUE (faixa vermelha)
-   --------------------------------------------------------- */
+/* --- FRASE EM DESTAQUE (faixa vermelha) --- */
 .case-quote {
   display: flex;
   flex-direction: column;
@@ -373,9 +352,7 @@
   color: var(--c-red-pale);
 }
 
-/* ---------------------------------------------------------
-   DECISÕES
-   --------------------------------------------------------- */
+/* --- DECISÕES --- */
 .case-decisions__list {
   display: grid;
   margin-top: var(--gap-m);
@@ -385,7 +362,7 @@
 .case-decision {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-content: start; /* no desktop, o vizinho mais alto não empurra o texto */
+  align-content: start; /* o vizinho mais alto não empurra o texto */
   gap: var(--gap-s) var(--gap-m);
   padding: var(--gap-l) 0;
   border-bottom: 1px solid var(--c-line);
@@ -429,9 +406,7 @@
   }
 }
 
-/* ---------------------------------------------------------
-   FICHA (tecnologia e onde está)
-   --------------------------------------------------------- */
+/* --- FICHA (tecnologia e onde está) --- */
 .case-facts {
   display: grid;
   gap: var(--gap-l);
@@ -473,9 +448,7 @@
   }
 }
 
-/* ---------------------------------------------------------
-   PRÓXIMOS PASSOS
-   --------------------------------------------------------- */
+/* --- PRÓXIMOS PASSOS --- */
 .case-next {
   display: flex;
   flex-direction: column;

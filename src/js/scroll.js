@@ -1,11 +1,8 @@
-// =========================================================
-// SCROLL — rolagem até âncoras (funciona com e sem ScrollSmoother)
-// =========================================================
+// SCROLL
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// instant: pula direto, sem animar (usado ao abrir a página já com âncora)
 export function scrollToHash(hash, { instant = false } = {}) {
   const target = hash && hash !== '#' ? document.querySelector(hash) : null;
   if (!target) return;
@@ -18,7 +15,6 @@ export function scrollToHash(hash, { instant = false } = {}) {
   }
 }
 
-// Links internos comuns (os do menu são tratados no menu.js)
 export function initAnchors() {
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[href^="#"]');

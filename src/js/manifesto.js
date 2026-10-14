@@ -1,18 +1,14 @@
-// =========================================================
-// MANIFESTO — as linhas começam coladas e se afastam,
-// revelando "O site, depois." no meio
-// =========================================================
+// MANIFESTO
 import { gsap } from 'gsap';
 
 export function initManifesto({ isMobile, reduceMotion }) {
-  if (reduceMotion) return; // fica no estado aberto (CSS)
+  if (reduceMotion) return;
 
   const stage = document.querySelector('.manifesto__stage');
   const top = stage.querySelector('.manifesto__line--top');
   const bottom = stage.querySelector('.manifesto__line--bottom');
   const body = stage.querySelector('.manifesto__body');
 
-  // Distância que cada linha anda até encostar na outra
   const offset = () => {
     const gap = parseFloat(getComputedStyle(stage).rowGap) || 0;
     return body.offsetHeight / 2 + gap;

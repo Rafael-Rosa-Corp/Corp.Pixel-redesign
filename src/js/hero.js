@@ -1,17 +1,14 @@
-// =========================================================
-// HERO — pixels espalhados que se montam no polvo com o scroll
-// =========================================================
+// HERO
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { splitText } from './split.js';
 import { getLogoPixels, LOGO } from './logo.js';
 
-// Ajustes finos da animação
 const SETTINGS = {
-  maxDelay: 0.35,          // atraso máximo entre pixels (0 a 1 do scroll)
-  pinDesktop: '+=160%',    // quanto scroll dura a montagem no desktop
-  pinMobile: '+=90%',      // ... e no celular
-  logoMaxWidth: 0.86,      // largura máxima do polvo (fração da tela)
+  maxDelay: 0.35,
+  pinDesktop: '+=160%',
+  pinMobile: '+=90%',
+  logoMaxWidth: 0.86,
 };
 
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -39,7 +36,6 @@ export function initHero({ isMobile, reduceMotion }) {
   let layout = null;
   let frame = 0;
 
-  // Calcula tamanho do pixel e posições com base no tamanho da tela
   function measure() {
     const width = stage.clientWidth;
     const height = stage.clientHeight;
@@ -59,7 +55,6 @@ export function initHero({ isMobile, reduceMotion }) {
     const ox = Math.round((width - cell * LOGO.cols) / 2);
     const oy = Math.round(headerH + (available - cell * LOGO.rows) / 2);
 
-   
     const spreadX = width * 1.1;
     const spreadY = height;
 
@@ -108,7 +103,6 @@ export function initHero({ isMobile, reduceMotion }) {
   draw();
   ScrollTrigger.addEventListener('refresh', onRefresh);
 
-  // Movimento reduzido: polvo montado, sem pin
   if (reduceMotion) {
     gsap.set(hint, { autoAlpha: 0 });
     return () => ScrollTrigger.removeEventListener('refresh', onRefresh);

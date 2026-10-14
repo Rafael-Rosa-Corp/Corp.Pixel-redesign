@@ -1,7 +1,4 @@
-// =========================================================
-// VITE — páginas do site
-// Cada página nova (ex.: outro case) entra na lista "input".
-// =========================================================
+// VITE
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';

@@ -1,21 +1,13 @@
-// =========================================================
-// QUEBRA-CABEÇA DA 404 — o polvo vem embaralhado em peças.
-//
-// Trocar duas peças: tocar/clicar numa e depois na outra,
-// ou arrastar uma até a outra. Teclado: Tab + Enter/Espaço.
-// Quando o polvo fica montado, aparece "Isso, sim, foi por acaso."
-// =========================================================
+// QUEBRA-CABEÇA DA 404
 import { gsap } from 'gsap';
 import { splitText } from './split.js';
 import { LOGO, getLogoPixels } from './logo.js';
 
-// Quantas peças. O polvo tem 60×48 pixels, então use divisores:
-// colunas 2, 3, 4, 5 ou 6 · linhas 2, 3, 4 ou 6.
-// Se mudar, ajuste também .puzzle (colunas) e .puzzle__slot (proporção) no notfound.css.
+// Divisores de 60×48; se mudar, ajuste .puzzle e .puzzle__slot no notfound.css
 const PUZZLE = { cols: 3, rows: 2 };
 
-const BACKGROUND = '#1C1A22'; // fundo das peças (mesmo --c-surface)
-const DRAG_THRESHOLD = 6;     // px que o dedo/mouse precisa andar para virar "arrastar"
+const BACKGROUND = '#1C1A22';
+const DRAG_THRESHOLD = 6;
 
 export function initPuzzle({ reduceMotion }) {
   const page = document.querySelector('.notfound');
@@ -40,14 +32,13 @@ export function initPuzzle({ reduceMotion }) {
     fullCtx.fillRect(x, y, 1, 1);
   });
 
-  // Cada peça vira um canvas pequeno (o CSS amplia sem borrar)
-  // "look" = conteúdo da peça: peças iguais (ex.: duas vazias) contam como certas
+  // "look": peças iguais (ex.: duas vazias) contam como certas
   const pieces = Array.from({ length: total }, (_, id) => {
     const sx = (id % PUZZLE.cols) * pieceW;
     const sy = Math.floor(id / PUZZLE.cols) * pieceH;
     const canvas = document.createElement('canvas');
     canvas.className = 'puzzle__piece';
-    canvas.dataset.piece = String(id); // posição certa da peça (0 = canto superior esquerdo)
+    canvas.dataset.piece = String(id);
     canvas.width = pieceW;
     canvas.height = pieceH;
     canvas.getContext('2d').drawImage(full, sx, sy, pieceW, pieceH, 0, 0, pieceW, pieceH);
@@ -65,7 +56,6 @@ export function initPuzzle({ reduceMotion }) {
     return button;
   });
 
-  // Embaralha até ficar bem fora do lugar (pelo menos metade das peças)
   const order = pieces.map((piece) => piece.id);
   const misplaced = () => order.filter((id, slot) => pieces[id].look !== pieces[slot].look).length;
   do {
@@ -96,7 +86,6 @@ export function initPuzzle({ reduceMotion }) {
     label();
   }
 
-  // Troca as peças de duas casas, com um deslize entre elas
   function swap(a, b) {
     const pieceA = a.firstElementChild;
     const pieceB = b.firstElementChild;
@@ -179,15 +168,13 @@ export function initPuzzle({ reduceMotion }) {
     if (!drag) return;
     const { slot, piece, moving } = drag;
     drag = null;
-    if (!moving) return; // foi só um toque: o "click" cuida
+    if (!moving) return;
 
-    // casa embaixo do dedo/mouse (a peça arrastada não conta: .is-dragging
-    // tira os cliques dela no CSS)
+    // .is-dragging tira os cliques da peça arrastada, então o ponto acha a casa de baixo
     const target = document.elementFromPoint(event.clientX, event.clientY)?.closest('.puzzle__slot');
     slot.classList.remove('is-dragging');
 
     if (target && target !== slot) {
-      // começa a troca de onde a peça foi solta
       const dropped = piece.getBoundingClientRect();
       gsap.set(piece, { x: 0, y: 0 });
       swap(slot, target);
@@ -198,7 +185,7 @@ export function initPuzzle({ reduceMotion }) {
     } else {
       gsap.to(piece, { x: 0, y: 0, duration: reduceMotion ? 0 : 0.3, ease: 'power3.out' });
     }
-    slot.dataset.dragged = 'true'; // evita o "click" que vem logo depois
+    slot.dataset.dragged = 'true'; // evita o "click" que vem logo depois do arrasto
   }
 
   board.addEventListener('pointerup', endDrag);
@@ -216,7 +203,6 @@ export function initPuzzle({ reduceMotion }) {
 
   label();
 
-  // Entrada: peças acendem fora de ordem (mesmo espírito dos títulos)
   if (!reduceMotion) {
     gsap.from(pieces.map((piece) => piece.canvas), {
       opacity: 0.06,

@@ -1,6 +1,4 @@
-/* =========================================================
-   CONTATO — briefing que escreve a mensagem do WhatsApp
-   ========================================================= */
+/* CONTATO */
 
 .contact {
   display: grid;
@@ -40,7 +38,6 @@
   color: var(--c-red-pale);
 }
 
-
 /* --- Formulário --- */
 .briefing {
   display: flex;
@@ -74,7 +71,7 @@
   cursor: pointer;
 }
 
-/* Rádio real fica invisível, mas acessível (teclado e leitor de tela) */
+/* Rádio invisível, mas acessível por teclado e leitor de tela */
 .briefing__input {
   position: absolute;
   inset: 0;
@@ -145,7 +142,6 @@
   color: rgba(246, 221, 226, 0.6);
 }
 
-/* Foco: a linha de baixo engrossa e fica branca (visível no teclado e no toque) */
 .briefing__other-input:focus,
 .briefing__other-input:focus-visible {
   outline: none;
@@ -206,7 +202,6 @@
   transition: opacity 0.25s ease;
 }
 
-/* Efeito de pixels no botão (o canvas é criado pelo cta-pixels.js) */
 .briefing__cta {
   position: relative;
   overflow: hidden;

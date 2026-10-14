@@ -1,7 +1,4 @@
-// =========================================================
-// ÍCONES SOCIAIS — logos oficiais (pacote simple-icons, licença CC0)
-// Uso no HTML: <a ... aria-label="Instagram" data-icon="instagram"></a>
-// =========================================================
+// ÍCONES SOCIAIS
 import { siInstagram, siGithub } from 'simple-icons';
 
 const ICONS = {

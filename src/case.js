@@ -1,7 +1,4 @@
-// =========================================================
-// CASE — liga tudo nas páginas de case (ex.: /trabalhos/raiz/)
-// Usa as mesmas peças da home: menu, scroll suave, títulos e pixelado.
-// =========================================================
+// CASE
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
@@ -20,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 // Evita recálculos quando a barra de endereço do celular aparece/some
 ScrollTrigger.config({ ignoreMobileResize: true });
 
-// Partes que não dependem de animação
 initMenu();
 initAnchors();
 initSocialIcons();
@@ -28,7 +24,6 @@ document.querySelectorAll('[data-whatsapp]').forEach((link) => {
   link.href = whatsappLink();
 });
 
-// Animações separadas por tipo de tela (mesmas condições da home)
 const mm = gsap.matchMedia();
 
 mm.add(
@@ -51,5 +46,4 @@ mm.add(
   }
 );
 
-// Recalcula tudo quando as fontes terminam de carregar
 document.fonts.ready.then(() => ScrollTrigger.refresh());

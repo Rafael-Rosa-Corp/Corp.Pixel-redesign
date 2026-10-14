@@ -1,6 +1,4 @@
-/* =========================================================
-   MENU — tela cheia, itens em escada
-   ========================================================= */
+/* MENU */
 
 .menu {
   position: fixed;
@@ -73,8 +71,7 @@
   cursor: pointer;
 }
 
-/* --- Itens grandes em escada ---
-   Base = celular (versão aprovada). Desktop (768px+) logo abaixo. */
+/* --- Itens grandes em escada --- */
 .menu__nav {
   position: relative;
   flex: 1 1 auto;
@@ -83,8 +80,6 @@
   justify-content: flex-end;
 }
 
-/* A lista ocupa toda a altura livre: cada item ganha uma faixa de
-   altura igual e o texto encosta no pé da faixa */
 .menu__list {
   flex: 1 1 auto;
   display: flex;
@@ -98,10 +93,9 @@
   gap: clamp(1rem, 2vw, 1.75rem);
   min-height: 4.5rem;
   padding-block: clamp(0.25rem, 0.6vw, 0.5rem);
-  border-bottom: 1px solid var(--c-line-dark); /* linha embaixo de cada item */
+  border-bottom: 1px solid var(--c-line-dark);
   overflow: hidden; /* máscara para a entrada dos textos */
 }
-
 
 .menu__row--2 { padding-left: 12%; }
 .menu__row--3 { padding-left: 24%; }
@@ -138,7 +132,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem clamp(1.5rem, 3vw, 2.5rem);
-  padding-top: var(--gap-l); /* celular: mais distância da escada */
+  padding-top: var(--gap-l);
 }
 
 .menu__secondary-link {
@@ -151,11 +145,8 @@
   text-underline-offset: 4px;
 }
 
-/* --- Desktop / tablet (768px+) ---
-   Escada que atravessa a tela: INÍCIO colado na esquerda, SOBRE colado na
-   direita e degraus iguais entre os 4. Links secundários numa faixa própria.
-   3.37 = largura da palavra "SOBRE" na Arvo, em "em". Se trocar o texto do
-   último item, ajuste esse número. */
+/* --- Desktop / tablet (768px+) --- */
+/* 3.37em = largura de "SOBRE" na Arvo: se trocar o último item, ajuste */
 @media (min-width: 768px) {
   .menu__nav {
     --menu-last-w: calc(var(--fs-menu) * 3.37);
@@ -178,7 +169,6 @@
   }
 }
 
-/* Celular pequeno: topo vira duas linhas */
 @media (max-width: 479px) {
   .menu__top {
     grid-template-columns: 1fr auto;

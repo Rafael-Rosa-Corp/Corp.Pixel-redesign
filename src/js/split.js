@@ -1,12 +1,9 @@
-// =========================================================
-// SPLIT — SplitText que continua legível para leitor de tela
-// =========================================================
+// SPLIT
 import { SplitText } from 'gsap/SplitText';
 
 const HEADING = /^H[1-6]$/;
 
-// Títulos (h1–h6) aceitam o rótulo do SplitText. span/p não aceitam:
-// as letras ficam escondidas do leitor de tela e uma cópia invisível do texto fica ao lado.
+// span/p não aceitam aria-label: letras escondidas do leitor de tela + cópia invisível do texto
 export function splitText(target, vars) {
   const elements = Array.isArray(target) ? target : [target];
   if (elements.every((el) => HEADING.test(el.tagName))) return SplitText.create(target, vars);
@@ -21,8 +18,19 @@ export function splitText(target, vars) {
 
   const split = SplitText.create(target, { ...vars, aria: 'hidden' });
   const revert = split.revert.bind(split);
+  const resplit = split.split.bind(split);
+  let resplitting = false;
+  // autoSplit refaz as linhas chamando revert(): aí as cópias continuam
+  split.split = (config) => {
+    resplitting = true;
+    try {
+      return resplit(config);
+    } finally {
+      resplitting = false;
+    }
+  };
   split.revert = () => {
-    copies.forEach((copy) => copy.remove());
+    if (!resplitting) copies.forEach((copy) => copy.remove());
     return revert();
   };
   return split;

@@ -1,18 +1,15 @@
-/* =========================================================
-   TOKENS — cores, fontes e espaçamentos do site inteiro.
-   Mude aqui e o site todo acompanha.
-   ========================================================= */
+/* TOKENS */
 
 :root {
   /* --- Cores da marca --- */
-  --c-bg: #121212;          /* fundo */
-  --c-surface: #1C1A22;     /* placeholders, caixas */
-  --c-text: #EDEAE6;        /* texto principal */
-  --c-text-soft: #CFCAD3;   /* parágrafos */
-  --c-muted: #A9A4AE;       /* rótulos, legendas */
-  --c-red: #A21231;         /* vermelho/vinho principal */
-  --c-red-light: #C8455F;   /* vermelho legível sobre fundo escuro */
-  --c-red-pale: #F6DDE2;    /* texto suave sobre o vermelho */
+  --c-bg: #121212;
+  --c-surface: #1C1A22;
+  --c-text: #EDEAE6;
+  --c-text-soft: #CFCAD3;
+  --c-muted: #A9A4AE;
+  --c-red: #A21231;
+  --c-red-light: #C8455F;
+  --c-red-pale: #F6DDE2;
   --c-purple: #352664;
   --c-violet: #492B61;
   --c-white: #FFFFFF;
@@ -24,7 +21,7 @@
   --f-display: 'Arvo', Georgia, serif;
   --f-body: 'Cantarell', system-ui, sans-serif;
   --f-pixel: 'Pixelify Sans', ui-monospace, monospace;
-  --ls-pixel: 0.04em; /* respiro entre as letras da fonte pixel (legibilidade) */
+  --ls-pixel: 0.04em;
 
   /* --- Escala tipográfica (fluida) --- */
   --fs-label: clamp(1rem, 0.75rem + 0.2vw, 1.0625rem);
@@ -46,12 +43,11 @@
 
   /* --- Outros --- */
   --header-h: clamp(4rem, 3.4rem + 2vw, 5.5rem);
-  --tap: 2.75rem; /* área mínima de toque (44px) */
+  --tap: 2.75rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* A partir de 768px, o tamanho dos itens do menu também respeita a altura
-   da tela (evita estourar em monitor largo e baixo) */
+/* Menu: o tamanho também respeita a altura da tela (monitor largo e baixo) */
 @media (min-width: 768px) {
   :root {
     --fs-menu: clamp(2.5rem, min(1rem + 7.6vw, 13vh), 8rem);

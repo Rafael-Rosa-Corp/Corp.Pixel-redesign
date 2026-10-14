@@ -1,7 +1,4 @@
-/* =========================================================
-   404 — página não encontrada + quebra-cabeça do polvo
-   Base = celular; a página é uma coluna centralizada em qualquer tela.
-   ========================================================= */
+/* 404 */
 
 .notfound {
   display: flex;
@@ -34,9 +31,8 @@
   color: var(--c-text-soft);
 }
 
-/* --- Tabuleiro ---
-   3 colunas = PUZZLE.cols no src/js/puzzle.js.
-   Proporção da peça = (60 ÷ colunas) / (48 ÷ linhas): 3×2 → 20/24. */
+/* --- Tabuleiro --- */
+/* colunas = PUZZLE.cols; proporção da peça = (60 ÷ colunas) / (48 ÷ linhas) */
 .puzzle {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -64,14 +60,12 @@
   image-rendering: pixelated;
 }
 
-/* Peça escolhida: contorno vermelho */
 .puzzle__slot.is-selected {
   outline: 2px solid var(--c-red-light);
   outline-offset: 3px;
   z-index: 1;
 }
 
-/* Peça sendo arrastada: fica por cima e não "tampa" a casa de destino */
 .puzzle__slot.is-dragging {
   z-index: 2;
   cursor: grabbing;
@@ -81,7 +75,6 @@
   pointer-events: none;
 }
 
-/* Montado: as frestas fecham e o polvo fica inteiro */
 .notfound.is-solved .puzzle {
   gap: 0;
 }
@@ -115,8 +108,7 @@
   color: var(--c-muted);
 }
 
-/* --- Links ---
-   Sem JS: só "Voltar para o início". Jogando: só "Pular...". Montado: "Voltar". */
+/* --- Links --- */
 .notfound__links {
   display: flex;
   flex-direction: column;
@@ -160,7 +152,6 @@
   display: inline-flex;
 }
 
-/* A instrução só aparece enquanto se joga (sem JS não há tabuleiro) */
 .notfound:not(.is-playing) .notfound__hint {
   display: none;
 }

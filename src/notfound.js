@@ -1,6 +1,4 @@
-// =========================================================
-// 404 — página não encontrada, com o quebra-cabeça do polvo
-// =========================================================
+// 404
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 

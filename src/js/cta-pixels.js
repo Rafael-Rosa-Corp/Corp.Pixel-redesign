@@ -1,15 +1,9 @@
-// =========================================================
-// BOTÃO DO WHATSAPP — pixels preenchem o botão
-// - Desktop: preenche no hover, desfaz ao sair
-// - Celular: preenche ao tocar
-// - Quando o formulário fica completo: "acende" uma vez
-// Só funciona com o formulário completo (botão desabilitado não reage).
-// =========================================================
+// BOTÃO DO WHATSAPP
 import { gsap } from 'gsap';
 
-const PIXEL = 8;            // tamanho de cada pixel (px)
-const COLOR = '#EDEAE6';    // cor dos pixels (o texto vira escuro por cima)
-const FILL_TIME = 0.4;      // segundos para preencher/desfazer
+const PIXEL = 8;
+const COLOR = '#EDEAE6';
+const FILL_TIME = 0.4;
 
 export function initCtaPixels({ finePointer, reduceMotion }) {
   if (reduceMotion) return;
@@ -25,7 +19,6 @@ export function initCtaPixels({ finePointer, reduceMotion }) {
   const state = { p: 0 };
   let cells = [];
 
-  // Grade de pixels em ordem aleatória (cada célula acende na sua vez)
   function measure() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const w = cta.offsetWidth;
@@ -59,10 +52,8 @@ export function initCtaPixels({ finePointer, reduceMotion }) {
     p, duration, ease: 'none', overwrite: true, onUpdate: draw,
   });
 
-  // Desktop: hover
   const onEnter = () => { if (enabled()) to(1); };
   const onLeave = () => to(0);
-  // Celular: toque (não impede o link de abrir o WhatsApp)
   const onTap = () => {
     if (!enabled()) return;
     gsap.killTweensOf(state);
@@ -70,7 +61,6 @@ export function initCtaPixels({ finePointer, reduceMotion }) {
       .to(state, { p: 1, duration: 0.25, ease: 'none', onUpdate: draw })
       .to(state, { p: 0, duration: 0.5, ease: 'none', onUpdate: draw }, '+=0.4');
   };
-  // Formulário completo: acende e apaga uma vez
   const onComplete = () => {
     gsap.killTweensOf(state);
     gsap.timeline()

@@ -1,6 +1,4 @@
-// =========================================================
-// MAIN — liga tudo
-// =========================================================
+// MAIN
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
@@ -25,14 +23,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 // Evita recálculos quando a barra de endereço do celular aparece/some
 ScrollTrigger.config({ ignoreMobileResize: true });
 
-// Partes que não dependem de animação
 initMenu();
 initAnchors();
 initBriefing();
 initSocialIcons();
 
-// Animações separadas por tipo de tela.
-// Quando a condição muda (ex.: girar o celular), tudo é desfeito e refeito.
 const mm = gsap.matchMedia();
 
 mm.add(
@@ -45,7 +40,6 @@ mm.add(
   (context) => {
     const conditions = context.conditions;
 
-    // Scroll suave só no desktop com mouse (ajustes em src/js/smooth.js)
     initSmoother(conditions);
 
     // A ordem importa: seções de cima primeiro (por causa dos pins)
@@ -64,8 +58,7 @@ mm.add(
   }
 );
 
-// Recalcula tudo quando as fontes terminam de carregar.
-// Se a página abriu com âncora (ex.: /#contato vindo do case), vai até ela.
+// Âncora vinda de outra página (ex.: /#contato): vai até ela só depois de medir tudo
 document.fonts.ready.then(() => {
   ScrollTrigger.refresh();
   if (window.location.hash) requestAnimationFrame(() => scrollToHash(window.location.hash, { instant: true }));

@@ -1,11 +1,7 @@
-// =========================================================
-// PIXEL REVEAL — imagens dos cases entram pixeladas
-// e ganham nitidez (no desktop, repete no hover)
-// =========================================================
+// PIXEL REVEAL
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Tamanho do "pixel" em cada passo (px). O último (1) = imagem nítida.
 const STEPS = [48, 32, 22, 16, 11, 8, 5, 3, 2, 1];
 
 function setupReveal(figure, { hover }) {
@@ -20,7 +16,6 @@ function setupReveal(figure, { hover }) {
   let revealed = false;
   let pendingPlay = false;
 
-  // Desenha a imagem em baixa resolução (efeito "object-fit: cover")
   function draw() {
     if (!ready) return;
     const block = STEPS[Math.round(state.step)];
