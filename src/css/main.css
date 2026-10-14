@@ -1,4 +1,5 @@
 /* Arquivo de entrada: importa tudo na ordem certa */
+@import './fonts.css';
 @import './tokens.css';
 @import './base.css';
 @import './header.css';

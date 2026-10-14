@@ -32,7 +32,7 @@ export function initPuzzle({ reduceMotion }) {
   const full = document.createElement('canvas');
   full.width = LOGO.cols;
   full.height = LOGO.rows;
-  const fullCtx = full.getContext('2d');
+  const fullCtx = full.getContext('2d', { willReadFrequently: true });
   fullCtx.fillStyle = BACKGROUND;
   fullCtx.fillRect(0, 0, LOGO.cols, LOGO.rows);
   getLogoPixels().forEach(({ x, y, color }) => {

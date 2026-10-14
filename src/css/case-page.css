@@ -1,4 +1,5 @@
 /* Arquivo de entrada das páginas de case: só o que elas usam */
+@import './fonts.css';
 @import './tokens.css';
 @import './base.css';
 @import './header.css';
