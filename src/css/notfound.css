@@ -32,7 +32,7 @@
 }
 
 /* --- Tabuleiro --- */
-/* colunas = PUZZLE.cols; proporção da peça = (60 ÷ colunas) / (48 ÷ linhas) */
+/* colunas = PUZZLE.cols; proporção da peça = (72 ÷ colunas) / (58 ÷ linhas) */
 .puzzle {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -44,7 +44,7 @@
 
 .puzzle__slot {
   position: relative;
-  aspect-ratio: 20 / 24;
+  aspect-ratio: 24 / 29;
   padding: 0;
   background: var(--c-surface);
   border: 0;

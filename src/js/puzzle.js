@@ -4,7 +4,7 @@ import { splitText } from './split.js';
 import { LOGO, getLogoPixels } from './logo.js';
 import { track } from './analytics.js';
 
-// Divisores de 60×48; se mudar, ajuste .puzzle e .puzzle__slot no notfound.css
+// Divisores de 72×58; se mudar, ajuste .puzzle e .puzzle__slot no notfound.css
 const PUZZLE = { cols: 3, rows: 2 };
 
 const BACKGROUND = '#1C1A22';
