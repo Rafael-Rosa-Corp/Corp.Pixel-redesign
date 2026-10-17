@@ -13,9 +13,13 @@ export function initAbout({ isDesktop, reduceMotion }) {
   const wraps = lines.map((line) => line.querySelector('.about__comment-wrap'));
   section.classList.add('is-interactive');
 
+  // Celular: o comentário já ocupa o espaço e só aparece (fechar/abrir fazia a linha pular)
+  if (!isDesktop) section.classList.add('about--fade');
+
   // GSAP mede o height "auto" na hora (o grid 0fr/1fr cortava o texto no Safari)
   function setActive(line, wrap, active) {
     line.classList.toggle('is-active', active);
+    if (!isDesktop) return;
     gsap.to(wrap, {
       height: active ? 'auto' : 0,
       duration: 0.45,
@@ -71,7 +75,7 @@ export function initAbout({ isDesktop, reduceMotion }) {
     trigger.kill();
     gsap.killTweensOf(wraps);
     gsap.set(wraps, { clearProps: 'height' });
-    section.classList.remove('is-interactive');
+    section.classList.remove('is-interactive', 'about--fade');
     lines.forEach((line) => line.classList.remove('is-active'));
   };
 }
