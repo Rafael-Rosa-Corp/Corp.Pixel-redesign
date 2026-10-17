@@ -114,6 +114,19 @@
   transform: none;
 }
 
+/* Apaga rápido e acende suave: no scroll do dedo, a anterior não fica acesa junto */
+.about--fade .about__line,
+.about--fade .about__num,
+.about--fade .about__comment {
+  transition-duration: 0.12s;
+}
+
+.about--fade .about__line.is-active,
+.about--fade .about__line.is-active .about__num,
+.about--fade .about__line.is-active .about__comment {
+  transition-duration: 0.4s;
+}
+
 @keyframes pixel-blink {
   0%   { opacity: 1; }
   50%  { opacity: 0; }
